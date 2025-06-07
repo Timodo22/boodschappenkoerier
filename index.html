@@ -763,8 +763,13 @@ header.scrolled {
 
     <!-- Hero Section -->
 <section id="home" class="hero">
+      <div class="hero-circle"></div>
 
   <div class="hero-content">
+    <h1 class="hero-cta">
+  Bespaar tot wel <span class="cta-percent">30%</span>!
+</h1>
+
     <div class="carousel">
       <!-- Product items -->
       <div class="carousel-item active" data-left-price="5.99" data-right-price="2.15">
@@ -830,8 +835,10 @@ header.scrolled {
     position: relative;
     overflow: hidden;
     padding: 0;
-    background-color:#fffaea;
+    /* Nieuwe split-achtergrond: links #0686c5, rechts #72c5fb */
+    background: linear-gradient(to right, #0686c5 50%, #72c5fb 50%);
 }
+
 .hero-title {
     position: absolute;
     top: 2rem;
@@ -860,20 +867,71 @@ header.scrolled {
 }
 
 
+/* Hero-content in kolom zodat titel, carousel en cirkels gecentreerd blijven */
 .hero-content {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 2rem;
-
-    /* Animatie toevoegen */
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 2.5s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+/* De nieuwe hero-cta */
+.hero-cta {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #13502f;              /* nieuwe kleur */
+  transform: translateY(-130px);
+}
+
+.hero-circle {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background-color: #fed008;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-circle {
+    top: 60%;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* De onderstreepte, pulserende 30% */
+/* Bold en pulserende 30% */
+.cta-percent {
+  position: relative;
+  font-weight: 800;               /* extra dik */
+  display: inline-block;
+  animation: pulse-scale 1.6s ease-in-out infinite; /* langzamer */
+}
+
+/* Pseudo-element voor een niet-meebewegende underline */
+
+/* Animatie: 30% wordt groter en kleiner */
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+
+/* Zorg dat alles responsive blijft */
+@media (max-width: 768px) {
+  .hero-cta {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    margin-bottom: 1rem;
+  }
+}
+
+
 
 /* Keyframes definiëren */
 @keyframes fadeInUp {
