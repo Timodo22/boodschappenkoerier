@@ -389,7 +389,12 @@
             .step {
                 flex-direction: column;
                 text-align: center;
+                align-items: center;
             }
+            .nav{
+                display: none;
+            }
+
 
             .pricing-box {
                 padding: 20px;
@@ -445,53 +450,70 @@
         </div>
     </header>
 
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">Hoe werkt het - in 3 stappen</h2>
-            
-            <div class="steps-container">
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Bestel <em>zelf bij</em> je favoriete Duitse winkel</h3>
-                            <p>B.v. REWE of DM via de links op onze website</p>
-                        </div>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Laat je bestelling klaarmaken voor afhaling</h3>
-                            <p>Kies in de winkel voor 'afhalen'.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pricing-box">
-                    <h3 class="pricing-title">Bezorgkosten overzicht:</h3>
-                    <div class="price-item">
-                        <span>Tot 2 kratten (60 l.)</span>
-                        <span>€24,99</span>
-                    </div>
-                    <div class="price-item">
-                        <span>Elke extra krat</span>
-                        <span>€6,99</span>
-                    </div>
-                    
-                    <div class="savings-highlight">
-                        <p>Je bespaart al snel<br>€30 tot €60 per week<br>op je boodschappen!</p>
-                    </div>
-                </div>
-            </div>
+<section class="how-it-works">
+  <div class="container">
+    <h2 class="section-title">Hoe werkt het - in 3 stappen</h2>
+    
+    <!-- Nu bevatten we zowel .steps als .pricing-box in één .steps-container -->
+    <div class="steps-container">
+      
+      <!-- Linkerkolom: de drie stappen -->
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Bestel <em>zelf bij</em> je favoriete Duitse winkel</h3>
+            <p>Op onze website vind je een overzicht van onze Duitse partners, bijvoorbeeld REWE of DM. Bestel je boodschappen via hun webshop en kies voor ‘afhalen’ in de winkel. <em>Let op: wij kunnen alleen ophalen bij winkels waarmee wij samenwerken.</em></p>
+          </div>
         </div>
-    </section>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Laat je bestelling klaarzetten en wij halen het op!</h3>
+            <p>Zorg ervoor dat je bestelling correct wordt klaargezet op naam. Zodra je een bevestiging hebt ontvangen van de winkel, ben je klaar voor de volgende stap.</p>
+          </div>
+        </div>
+  
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Stuur ons je gegevens via WhatsApp</h3>
+            <p>Stuur ons via WhatsApp de bestelbevestiging, het bestelnummer en het afhaaladres. Wij halen je bestelling voor je op en bezorgen het bij je thuis in Nederland.</p>
+            <p>💶 <strong>Betaling boodschappen:</strong> Je betaalt de kosten van de boodschappen vooraf aan ons, zodat wij deze in Duitsland kunnen afrekenen.<br>
+               📦 <strong>Bezorgkosten:</strong> De bezorgkosten betaal je bij aflevering aan de deur, omdat wij pas bij het ophalen weten hoeveel kratten het zijn.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Rechterkolom: het prijs­overzicht -->
+      <div class="pricing-box">
+        <h3 class="pricing-title">Bezorgkosten overzicht:</h3>
+        <div class="price-item">
+          <span>Tot 2 kratten (60 l.)</span>
+          <span>€24,99</span>
+        </div>
+        <div class="price-item">
+          <span>Elke extra krat</span>
+          <span>€6,99</span>
+        </div>
+        
+        <div class="savings-highlight">
+          <p>Je bespaart al snel<br>Bespaar 30% of meer<br>op je boodschappen!</p>
+        </div>
+      </div>
+      
+    </div> <!-- /.steps-container -->
+    
+  </div> <!-- /.container -->
+</section>
+
 
 <section class="bottom-section" style="background-color: #fcf3d4;">
   <div class="container">
     <div class="bottom-content">
       <div class="bottom-text">
-        <h2>Je bespaart al snel €30 tot €60 per week op je boodschappen!</h2>
+        <h2>Je bespaart al snel 30% of meer per week op je boodschappen!</h2>
       </div>
       
       <div class="product-showcase">
