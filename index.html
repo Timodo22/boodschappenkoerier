@@ -3,45 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DE BOODSCHAPPENKOERIER - Bespaar op je boodschappen!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-...hash..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>De Boodschappenkoerier</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #10B981;
-            --primary-dark: #059669;
-            --primary-light: #34D399;
-            --secondary: #F59E0B;
-            --dark: #111827;
-            --gray-900: #1F2937;
-            --gray-800: #374151;
-            --gray-100: #F3F4F6;
-            --white: #FFFFFF;
-            --gradient-primary: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
-            --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
-            --shadow-xl: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-            background: var(--white);
         }
-
 
         .container {
             max-width: 1200px;
@@ -49,1398 +22,557 @@
             padding: 0 20px;
         }
 
-        /* Glassmorphism Background Effects */
-        .bg-blur {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--gray-100);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
         /* Header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: transparent;
-    backdrop-filter: none;
-    border-bottom: none;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
-}
+        .header {
+            background: linear-gradient(135deg, #4a90e2 0%, #7bb3f0 100%);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
 
-header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-
-
-        .nav-container {
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            margin-bottom: 40px;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-5px); }
-            60% { transform: translateY(-3px); }
+            font-size: 28px;
+            font-weight: bold;
+            color: #2d7a2d;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            align-items: center;
+            gap: 30px;
         }
 
         .nav-links a {
+            color: white;
             text-decoration: none;
-            color: var(--gray-800);
             font-weight: 500;
-            padding: 1rem 1.5rem;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            font-size: 16px;
+            transition: opacity 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        /* Mobile Menu Button */
-
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-            transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         /* Hero Section */
-        /* Hero Section */
-
-/* Nederlandse vlag links */
-
-
-/* Duitse vlag rechts */
-
-
-/* Afbeelding in het midden */
-
-
-        @keyframes backgroundMove {
-            0% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-60px) translateY(-60px); }
-            50% { transform: translateX(-120px) translateY(0); }
-            75% { transform: translateX(-60px) translateY(60px); }
-            100% { transform: translateX(0) translateY(0); }
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
         }
 
-
-
-
-
-        @keyframes textGlow {
-            0% { 
-                filter: brightness(1) saturate(1);
-                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            }
-            100% { 
-                filter: brightness(1.1) saturate(1.2);
-                text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
-            }
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 20px;
+            margin-bottom: 30px;
             opacity: 0.9;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            animation: fadeInUp 1s ease-out 0.5s both;
         }
 
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.7s both;
+        .cta-button {
+            background: #2d7a2d;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .cta-button:hover {
+            background: #236623;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.9s both;
+        .hero-truck {
+            text-align: center;
         }
 
-        .cta-primary, .cta-secondary {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        .truck-svg {
+            width: 300px;
+            height: 200px;
         }
 
-        .cta-primary {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.4);
-            background: #f8f9fa;
-        }
-
-        .cta-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-
-        /* Floating Elements - Larger and more visible */
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            font-size: 4rem;
-            opacity: 0.3;
-            animation: float 12s linear infinite;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.4;
-            }
-            90% {
-                opacity: 0.4;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) rotate(360deg) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        /* Sections */
-        .section {
-            padding: 6rem 0;
-            position: relative;
+        /* How it works section */
+        .how-it-works {
+            background: white;
+            padding: 60px 0;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--gray-900);
-            position: relative;
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: bold;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--gray-800);
-            margin-bottom: 4rem;
-            opacity: 0.8;
-        }
-
-        /* How it works */
-        .how-it-works {
-            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
-        }
-
-        .steps-grid {
+        .steps-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
         }
 
-        .step-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
-
-        .step-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--shadow-xl);
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
         }
 
         .step-number {
-            display: inline-flex;
+            background: #4CAF50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            color: var(--white);
-            border-radius: 50%;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
         }
 
-        .step-card:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
+        .step-content h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
 
-        .step-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
+        .step-content p {
+            color: #666;
+            font-size: 16px;
         }
 
-        .step-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 1rem;
-        }
-
-        .step-description {
-            color: var(--gray-800);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Pricing */
-        .pricing {
-            background: var(--white);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 24px;
-            text-align: left;    
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-features {
-  list-style: none;           /* Verwijder standaard opsommingstekens */
-  padding: 0;
-  margin: 1.5rem 0;           /* Ruimte boven en onder de lijst */
-}
-
-.pricing-features li {
-  position: relative;
-  padding-left: 1.6rem;       /* Ruimte links voor het vinkje */
-  margin-bottom: 0.6rem;      /* Ruimte tussen de items */
-  line-height: 1.5;
-  color: var(--gray-800);
-  font-weight: 500;
-}
-
-.pricing-features li::before {
-  content: '✓';               /* Unicode-vinkje */
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 1rem;
-  color: var(--primary);      /* Kleur van het vinkje */
-  line-height: 1.5;
-}
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, var(--primary-light), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            animation: rotate 4s linear infinite;
-        }
-
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
-        }
-
-        .pricing-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 25px 50px rgba(16, 185, 129, 0.2);
-        }
-
-        .pricing-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .pricing-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
         }
 
         .pricing-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 1rem;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
-        .pricing-amount {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
-        .pricing-description {
-            color: var(--gray-800);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        .price-item span:first-child {
+            color: #666;
         }
 
-        .savings-banner {
-            background: linear-gradient(135deg, #FEF3C7 0%, #FDE047 100%);
-            color: var(--gray-900);
-            padding: 2rem;
-            border-radius: 20px;
+        .price-item span:last-child {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .savings-highlight {
+            background: #ffd54f;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 3rem 0;
-            box-shadow: var(--shadow-lg);
-            animation: pulse 2s infinite;
+            margin-top: 20px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+        .savings-highlight p {
+            font-weight: bold;
+            color: #333;
+            font-size: 18px;
         }
 
-        /* Contact */
-        .contact {
-            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+        /* Bottom section */
+        .bottom-section {
+            background: #f8f9fa;
+            padding: 60px 0;
         }
 
-        .contact-grid {
+        .bottom-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .contact-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 1rem;
-        }
-
-        .whatsapp-btn {
-            display: inline-flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 0.5rem;
-            background: #25D366;
-            color: var(--white);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
         }
 
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        .bottom-text h2 {
+            font-size: 36px;
+            color: #2d7a2d;
+            margin-bottom: 20px;
+            font-weight: bold;
+            line-height: 1.2;
         }
 
-        /* Footer */
-        footer {
-            background: var(--gradient-hero);
-            color: var(--white);
+        .product-showcase {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .product-card {
             text-align: center;
-            padding: 3rem 0;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        /* Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .product-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
-        /* Responsive Design */
+        .nutella-img {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><rect x="20" y="20" width="60" height="80" rx="8" fill="%23D4AF37"/><rect x="25" y="25" width="50" height="15" fill="%23FF6B35"/><text x="50" y="38" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">nutella</text><circle cx="50" cy="70" r="20" fill="%238B4513"/></svg>');
+        }
+
+        .coca-cola-img {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 120"><rect x="15" y="10" width="30" height="100" rx="15" fill="%23DC143C"/><rect x="20" y="15" width="20" height="20" fill="%23FF0000"/><text x="30" y="28" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Coca</text><text x="30" y="36" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Cola</text></svg>');
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #DC143C;
+        }
+
+        .flag-price {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+        }
+
+        .flag-nl {
+            background: linear-gradient(to bottom, #FF0000 33%, white 33%, white 66%, #0066CC 66%);
+        }
+
+        .flag-de {
+            background: linear-gradient(to bottom, black 33%, #DD0000 33%, #DD0000 66%, #FFCC00 66%);
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
             .nav-links {
-                display: none;
+                gap: 20px;
             }
-            
-            .mobile-menu-btn {
-                display: flex;
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
             }
-            
-            .hero h1 {
-                font-size: 3rem;
+
+            .hero-content h1 {
+                font-size: 36px;
             }
-            
+
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 18px;
             }
-            
-            .cta-buttons {
+
+            .truck-svg {
+                width: 250px;
+                height: 160px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .bottom-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .bottom-text h2 {
+                font-size: 28px;
+            }
+
+            .product-showcase {
                 flex-direction: column;
                 align-items: center;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-container {
-                padding: 1rem;
+                gap: 20px;
             }
         }
 
-        /* Interactive Elements */
-        .interactive-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+                padding: 8px 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .steps {
+                gap: 20px;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pricing-box {
+                padding: 20px;
+            }
         }
+
+        /* Logo in de hero section */
+.hero-logo {
+    text-align: center;
+}
+.hero-logo-img {
+    width: 600px;      /* pas aan naar gewenste breedte */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-logo-img {
+    width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo-img {
+    width: 300px;
+  }
+}
 
     </style>
-    <style>
-  body {
-    cursor: none;
-  }
-  .cursor-dot {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 1.8rem;
-    background: none;
-    color: var(--primary);
-    mix-blend-mode: normal;
-    transition: transform 0.15s ease;
-  }
-  /* Vergeet niet de rest van je styling hier te houden */
-</style>
-
 </head>
 <body>
-      <!-- … je andere HTML … -->
-
-  <!-- Enkel dit -->
-  <div class="cursor-dot">🚚</div>
-
-  <!-- Jouw scripts die de cursor verplaatsen: -->
-  <script>
-    const cursor = document.querySelector('.cursor-dot');
-    let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.opacity = '1';
-    });
-    document.addEventListener('mouseleave', () => {
-      cursor.style.opacity = '0';
-    });
-
-    function animateCursor() {
-      cursorX += (mouseX - cursorX) * 0.1;
-      cursorY += (mouseY - cursorY) * 0.1;
-      cursor.style.left = cursorX + 'px';
-      cursor.style.top = cursorY + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-
-    // Hover-scale effect
-    document.querySelectorAll('a, button, .cta-button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(1.6)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'scale(1)';
-      });
-    });
-  </script>
-    <!-- Interactive Background -->
-    <div class="interactive-bg"></div>
-
-    <!-- Header -->
-<header>
-  <nav class="nav-container">
-    <!-- Logo-linksboven, met PNG -->
-    <a href="#home" class="logo">
-      <img src="logo.png" alt="De Boodschappenkoerier" class="logo-img" style="height: 100px;">
-    </a>
-
-    <!-- Navigatielinks (desktop) -->
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#hoe-werkt-het">Hoe werkt het</a></li>
-      <li><a href="#prijzen">Prijzen</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <!-- Hamburger-knop (desktop) -->
-</header>
-
-
-    <!-- Hero Section -->
-<section id="home" class="hero">
-      <div class="hero-circle"></div>
-
-  <div class="hero-content">
-    <h1 class="hero-cta">
-  Bespaar tot wel <span class="cta-percent">30%</span>!
-</h1>
-
-    <div class="carousel">
-      <!-- Product items -->
-      <div class="carousel-item active" data-left-price="5.99" data-right-price="2.15">
-        <img src="deobus.png" alt="Product 1">
-      </div>
-      <div class="carousel-item" data-left-price="3.49" data-right-price="1.89">
-        <img src="Product2.png" alt="Product 2">
-      </div>
-      <div class="carousel-item" data-left-price="6.75" data-right-price="2.50">
-        <img src="Product3.png" alt="Product 3">
-      </div>
-      <!-- Voeg hier meer producten toe -->
-    </div>
-    <!-- Prijs rondjes -->
-<!-- Prijs rondjes met emoji‐vlaggetjes -->
-<!-- … andere code … -->
-
-<div class="price-circle left-price">
-  <span class="price-value">€ 5,99</span>
-  <img src="Dutch_flag.png" alt="Nederlandse vlag" class="flag-img">
-</div>
-
-<div class="price-circle right-price">
-  <span class="price-value">€ 2,15</span>
-  <img src="Germany_flag.png" alt="Duitse vlag" class="flag-img">
-</div>
-
-
-
-
-
-<!-- … rest van code … -->
-
-
-    
-  </div>
-</section>
-
-<style>
-
-.flag-img {
-  position: absolute;
-  bottom: 12px;            /* afstand tot onderkant cirkel */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;             /* pas aan naar gewenste vlaggrootte */
-  height: auto;
-  pointer-events: none;
-  user-select: none;
-}
-@media (max-width: 768px) {
-  .flag-img {
-    width: 24px;
-    bottom: 6px;
-  }
-}
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-    /* Nieuwe split-achtergrond: links #0686c5, rechts #72c5fb */
-    background: linear-gradient(to right, #0686c5 50%, #72c5fb 50%);
-}
-
-.hero-title {
-    position: absolute;
-    top: 2rem;
-    width: 100%;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #13502f;
-    z-index: 4;
-    animation: fadeIn 2s ease-out;
-
-    
-}
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Hero-content in kolom zodat titel, carousel en cirkels gecentreerd blijven */
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* De nieuwe hero-cta */
-.hero-cta {
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 700;
-  color: var(--primary);
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #13502f;              /* nieuwe kleur */
-  transform: translateY(-130px);
-}
-
-.hero-circle {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
-  background-color: #fed008;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .hero-circle {
-    top: 60%;
-    width: 300px;
-    height: 300px;
-  }
-}
-
-/* De onderstreepte, pulserende 30% */
-/* Bold en pulserende 30% */
-.cta-percent {
-  position: relative;
-  font-weight: 800;               /* extra dik */
-  display: inline-block;
-  animation: pulse-scale 1.6s ease-in-out infinite; /* langzamer */
-}
-
-/* Pseudo-element voor een niet-meebewegende underline */
-
-/* Animatie: 30% wordt groter en kleiner */
-@keyframes pulse-scale {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.2); }
-}
-
-/* Zorg dat alles responsive blijft */
-@media (max-width: 768px) {
-  .hero-cta {
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
-    margin-bottom: 1rem;
-  }
-}
-
-
-
-/* Keyframes definiëren */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-.carousel {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    height: auto;
-}
-
-.carousel-item {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-    max-width: 400px;
-    width: 100%;
-}
-
-.carousel-item.active {
-    opacity: 1;
-    position: relative;
-    z-index: 2;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* ==============================
-   Bestaande stijl voor .price-circle
-   (laat dit zoals het al staat bij jullie)
-   ============================== */
-.price-circle {
-  position: absolute;         /* al aanwezig in jouw code */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  font-size: 3.5rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 1s ease;
-  z-index: 3;
-
-  /* let op: overflow visible zodat de emoji buiten de cirkel mag uitsteken */
-  overflow: visible;
-}
-
-/* Specifieke styling per kant */
-.left-price {
-  left: 2%;
-  background-color: rgba(255, 0, 0, 0.1);
-  color: #13502f;
-  border: 6px solid #13502f;
-}
-.right-price {
-  right: 2%;
-  background-color: #13502f;
-  color: white;
-  border: 6px solid #13502f;
-}
-
-/* Het vlaggetje zelf */
-.flag-emoji {
-  position: absolute;
-  bottom: 12px;              /* afstand vanaf de onderkant van de cirkel */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.5rem;         /* pas aan naar gewenste vlaggrootte */
-  line-height: 1;
-  user-select: none;
-  pointer-events: none;
-}
-
-/* Eventueel: per vlag een aparte class (als je ze nog anders wilt positioneren) */
-.flag-nl { /* kan leeg blijven of eigen tweaks krijgen */ }
-.flag-de { /* idem */ }
-
-/* Responsive: bij smallere schermen iets kleiner maken */
-@media (max-width: 768px) {
-  .price-circle {
-    width: 80px;
-    height: 80px;
-    font-size: 1.1rem;
-    /* overflow: visible blijft actief */
-  }
-  .flag-emoji {
-    font-size: 1.5rem;
-    bottom: 6px;
-  }
-}
-
-
-
-@media (max-width: 768px) {
-    .carousel-item {
-        max-width: 260px;
-    }
-
-    .price-circle {
-        width: 80px;
-        height: 80px;
-        font-size: 1.1rem;
-    }
-
-    .left-price {
-        left: 10px;
-    }
-
-    .right-price {
-        right: 10px;
-    }
-}
-
-</style>
-
-<script>
-  const items       = document.querySelectorAll('.carousel-item');
-  const leftCircle  = document.querySelector('.left-price');
-  const rightCircle = document.querySelector('.right-price');
-  let currentIndex  = 0;
-
-function updateCarousel() {
-  // 1) Verwijder eerst overal de “active”-klasse
-  items.forEach(item => item.classList.remove('active'));
-
-  // 2) Bepaal welk carousel-item nu actief is
-  const currentItem = items[currentIndex];
-
-  // 3) Voeg op dat item de “active”-klasse toe
-  currentItem.classList.add('active');
-
-  // 4) Lees de prijzen uit de data-attributes
-  const leftPriceValue  = currentItem.dataset.leftPrice;  
-  const rightPriceValue = currentItem.dataset.rightPrice; 
-
-  // 5) Vul die teksten in de juiste <span class="price-value">
-  leftCircle.querySelector('.price-value').textContent  = `€ ${leftPriceValue}`;
-  rightCircle.querySelector('.price-value').textContent = `€ ${rightPriceValue}`;
-}
-
-
-  function nextItem() {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-  }
-
-  // Start meteen met invullen, en laat de carousel elke 4 seconden flippen
-  updateCarousel();
-  setInterval(nextItem, 4000);
-</script>
-
-
-    <section id="hoe-werkt-het" class="section how-it-works">
+    <header class="header">
         <div class="container">
-            <h2 class="section-title fade-in-up">Wat een verschil hè?</h2>
-            <p class="section-subtitle fade-in-up">Gebruik dit om tot wel 30% te sparen op je boodschappen!</p>
+            <nav class="nav">
+                <div class="logo">DE BOODSCHAPPENKOERIER</div>
+                <ul class="nav-links">
+                    <li><a href="#">Hoe werkt het</a></li>
+                    <li><a href="#">Bezorgkosten</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Bespaar tot wel 30% op je wekelijkse boodschappen!</h1>
+                    <p class="hero-subtitle">Waarom duur kopen in Nederland, als het goedkoper kan in Duitsland?</p>
+                    <button class="cta-button">Bestel nu via WhatsApp</button>
+                </div>
+<div class="hero-logo">
+    <img src="logo.png" alt="Mijn Logo" class="hero-logo-img">
+</div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Hoe werkt het - in 3 stappen</h2>
             
-            <div class="steps-grid">
-                <div class="step-card fade-in-up">
-                    <div class="step-number">1</div>
-                    <span class="step-icon">🛍️</span>
-                    <h3 class="step-title">Bestel zelf online</h3>
-                    <p class="step-description">
-                        Bestel bij jouw favoriete Duitse winkel zoals REWE of DM. 
-                        Via onze website vind je handige links naar alle supermarkten en drogisterijen.
-                    </p>
+            <div class="steps-container">
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Bestel <em>zelf bij</em> je favoriete Duitse winkel</h3>
+                            <p>B.v. REWE of DM via de links op onze website</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Laat je bestelling klaarmaken voor afhaling</h3>
+                            <p>Kies in de winkel voor 'afhalen'.</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="step-card fade-in-up">
-                    <div class="step-number">2</div>
-                    <span class="step-icon">📦</span>
-                    <h3 class="step-title">Laat klaarzetten</h3>
-                    <p class="step-description">
-                        Laat je bestelling klaarzetten voor afhaling in Duitsland. 
-                        Simpel en gemakkelijk zonder gedoe!
-                    </p>
-                </div>
-                
-                <div class="step-card fade-in-up">
-                    <div class="step-number">3</div>
-                    <span class="step-icon">📱</span>
-                    <h3 class="step-title">Stuur ons je bestelling</h3>
-                    <p class="step-description">
-                        Stuur ons via WhatsApp je bestelling en bestelnummer. 
-                        Vermeld je naam en adres. Betaal vooraf of bij bezorging.
-                    </p>
-                </div>
-                
-                <div class="step-card fade-in-up">
-                    <div class="step-number">4</div>
-                    <span class="step-icon">🚚</span>
-                    <h3 class="step-title">Wij bezorgen</h3>
-                    <p class="step-description">
-                        Wij halen je boodschappen op in Duitsland en bezorgen deze bij je thuis - 
-                        snel, betrouwbaar en met zorg behandeld!
-                    </p>
+
+                <div class="pricing-box">
+                    <h3 class="pricing-title">Bezorgkosten overzicht:</h3>
+                    <div class="price-item">
+                        <span>Tot 2 kratten (60 l.)</span>
+                        <span>€24,99</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Elke extra krat</span>
+                        <span>€6,99</span>
+                    </div>
+                    
+                    <div class="savings-highlight">
+                        <p>Je bespaart al snel<br>€30 tot €60 per week<br>op je boodschappen!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
-    <!-- Pricing -->
-   <section id="prijzen" class="section pricing">
+<section class="bottom-section" style="background-color: #fcf3d4;">
   <div class="container">
-    <h2 class="section-title fade-in-up">Transparante prijzen</h2>
-    <p class="section-subtitle fade-in-up">Eerlijke bezorgkosten zonder verborgen kosten</p>
-
-    <div class="pricing-grid">
-      <div class="pricing-card fade-in-up">
-        <span class="pricing-icon">🧺</span>
-        <h3 class="pricing-title">Standaard bezorging</h3>
-        <div class="pricing-amount">€24,99</div>
-        <!-- Lijst met vinkjes -->
-        <ul class="pricing-features">
-          <li>Tot 2 kratten van 60L</li>
-          <li>Perfect voor kleinere boodschappen</li>
-          <li>Snelle en betrouwbare bezorging</li>
-        </ul>
+    <div class="bottom-content">
+      <div class="bottom-text">
+        <h2>Je bespaart al snel €30 tot €60 per week op je boodschappen!</h2>
       </div>
-
-      <div class="pricing-card fade-in-up">
-        <span class="pricing-icon">📦</span>
-        <h3 class="pricing-title">Extra kratten</h3>
-        <div class="pricing-amount">€6,99</div>
-        <!-- Lijst met vinkjes -->
-        <ul class="pricing-features">
-          <li>Per extra krat van 60L</li>
-          <li>Voor grotere gezinnen of voorraad</li>
-          <li>Geen limiet op aantal kratten</li>
-        </ul>
+      
+      <div class="product-showcase">
+        <!-- Nederlandse kaart -->
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-name"></div>
+          <div class="flag-price">
+            <div class="flag flag-nl"></div>
+            <span class="product-price"></span>
+          </div>
+        </div>
+        
+        <!-- Duitse kaart -->
+        <div class="product-card">
+          <div class="product-image"></div>
+          <div class="product-name"></div>
+          <div class="flag-price" >
+            <div class="flag flag-de"></div>
+            <span class="product-price" style="color: #2d7a2d;"></span>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="savings-banner fade-in-up">
-      🎉 Bespaar tot wel 30% op je maandelijkse boodschappen! 🎉
     </div>
   </div>
 </section>
+<script>
+  // 1) Definieer hier al je producten
+  const products = [
+    {
+      img: 'Product2.png',
+      name: 'Nivea Shampoo',
+      nlPrice: '4,69',
+      dePrice: '1,49'
+    },
+    {
+      img: 'Product3.png',
+      name: 'Make-up remover',
+      nlPrice: '5,99',
+      dePrice: '2,49'
+    },
+        {
+      img: 'deobus.png',
+      name: 'Deodorant',
+      nlPrice: '6,99',
+      dePrice: '1,42'
+    },
+    // voeg naar wens meer items toe:
+    // {
+    //   img: 'Product4.png',
+    //   name: 'MÜSLI',
+    //   nlPrice: '2,50',
+    //   dePrice: '1,80'
+    // },
+  ];
 
+  let currentIndex = 0;
+  const cards = document.querySelectorAll('.product-card');
 
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title fade-in-up">Contact & Bestellen</h2>
-            <p class="section-subtitle fade-in-up">Klaar om te beginnen met besparen?</p>
-            
-            <div class="contact-grid">
-                <div class="contact-card fade-in-up">
-                    <span class="contact-icon">🌐</span>
-                    <h3 class="contact-title">Website</h3>
-                    <p>www.deboodschappenkoerier.nl</p>
-                    <p>Vind hier links naar al je favoriete Duitse winkels en supermarkten</p>
-                </div>
-                
-                <div class="contact-card fade-in-up">
-                    <span class="contact-icon">📱</span>
-                    <h3 class="contact-title">WhatsApp Bestellen</h3>
-                    <p>+31 6 172 394 70</p>
-<a href="https://wa.me/31617239470" class="whatsapp-btn">
-    <i class="fab fa-whatsapp"></i>
-    Start WhatsApp chat
-</a>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 DE BOODSCHAPPENKOERIER - Powerd by Spectux</p>
-            <p style="margin-top: 0.5rem; opacity: 0.8;">Besparen op boodschappen, dat is pas slim winkelen! 🛒✨</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            const scrolled = window.scrollY > 50;
-            
-            if (scrolled) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            observer.observe(el);
-        });
-
-
-        // Interactive elements hover effects
-        document.querySelectorAll('.step-card, .pricing-card, .contact-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // CTA button click effect
-        
-
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Floating fruits generator
-        // Create floating fruits periodically
-        setInterval(createFloatingFruit, 4000);
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-        });
-
-        // Pricing card special effects
-        document.querySelectorAll('.pricing-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.background = 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.background = '#ffffff';
-            });
-        });
-
-        // Parallax effect for hero background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const heroHeight = hero.offsetHeight;
-            
-            if (scrolled < heroHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Enhanced step cards interaction
-        document.querySelectorAll('.step-card').forEach((card, index) => {
-            card.addEventListener('mouseenter', function() {
-                // Add glow effect
-                this.style.boxShadow = `0 25px 50px rgba(16, 185, 129, 0.2), 0 0 30px rgba(16, 185, 129, 0.1)`;
-                
-                // Animate step number
-                const stepNumber = this.querySelector('.step-number');
-                stepNumber.style.transform = 'scale(1.1) rotate(5deg)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)';
-                
-                const stepNumber = this.querySelector('.step-number');
-                stepNumber.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-
-        // Text typing effect for hero title (optional enhancement)
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Progressive loading of animations
-        window.addEventListener('load', () => {
-            // Add loaded class to body for CSS transitions
-            document.body.classList.add('loaded');
-            
-            // Initialize more complex animations
-            setTimeout(() => {
-                document.querySelectorAll('.step-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 200);
-                });
-            }, 500);
-        });
-
-        // Performance optimization: throttle scroll events
-        let ticking = false;
-        
-        function updateOnScroll() {
-            // Your scroll-based animations here
-            ticking = false;
-        }
-        
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateOnScroll);
-                ticking = true;
-            }
-        });
-
-        // Easter egg: Konami code
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (konamiCode.toString() === konamiSequence.toString()) {
-                // Secret animation
-                document.body.style.animation = 'rainbow 2s infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 2000);
-            }
-        });
-
-        // Add rainbow animation
-        const rainbowStyle = document.createElement('style');
-        rainbowStyle.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(rainbowStyle);
-    </script>
-
-    <script>
-    window.addEventListener('scroll', function () {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+  function updateCards() {
+    const prod = products[currentIndex];
+    cards.forEach((card, i) => {
+      // product-image als achtergrond instellen
+      card.querySelector('.product-image').style.backgroundImage = `url('${prod.img}')`;
+      // naam
+      card.querySelector('.product-name').textContent = prod.name;
+      // prijs
+      const priceElem = card.querySelector('.product-price');
+      priceElem.textContent = (i === 0) ? prod.nlPrice : prod.dePrice;
     });
+  }
+
+  // bij laden eerste keer updaten
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCards();
+    // elke 5s naar volgende product
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % products.length;
+      updateCards();
+    }, 5000);
+  });
 </script>
 
 </body>
