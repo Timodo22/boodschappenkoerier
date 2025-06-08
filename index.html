@@ -255,8 +255,8 @@
         }
 
         .product-image {
-            width: 120px;
-            height: 120px;
+            width: 300px;
+            height: 300px;
             margin: 0 auto 15px;
             background-size: contain;
             background-repeat: no-repeat;
@@ -422,6 +422,47 @@
   }
 }
 
+.product-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.price-circle {
+  position: absolute;
+  background: #f5f0e6; /* beige achtergrond */
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.price-circle.nl {
+  top: 40px;
+  left: 8px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #DC143C; /* rood */
+}
+
+.price-circle.de {
+  bottom: 8px;
+  right: 60px;
+  width: 80px;
+  height: 80px;
+  border: 6px solid #236623; /* groen */
+  font-size: 25px;
+
+  color: #236623;
+  z-index: 100;
+}
+.flag-price {
+  display: none;
+}
+
+
     </style>
 </head>
 <body>
@@ -518,24 +559,19 @@
       
       <div class="product-showcase">
         <!-- Nederlandse kaart -->
-        <div class="product-card">
-          <div class="product-image"></div>
-          <div class="product-name"></div>
-          <div class="flag-price">
-            <div class="flag flag-nl"></div>
-            <span class="product-price"></span>
-          </div>
-        </div>
-        
-        <!-- Duitse kaart -->
-        <div class="product-card">
-          <div class="product-image"></div>
-          <div class="product-name"></div>
-          <div class="flag-price" >
-            <div class="flag flag-de"></div>
-            <span class="product-price" style="color: #2d7a2d;"></span>
-          </div>
-        </div>
+<div class="product-card">
+  <div class="product-image-wrapper">
+    <div class="product-image"></div>
+    <span class="price-circle nl"></span>
+    <span class="price-circle de"></span>
+  </div>
+  <div class="product-name"></div>
+  <div class="flag-price">
+    <div class="flag flag-nl"></div>
+    <span class="product-price"></span>
+  </div>
+</div>
+
       </div>
     </div>
   </div>
@@ -573,18 +609,22 @@
   let currentIndex = 0;
   const cards = document.querySelectorAll('.product-card');
 
-  function updateCards() {
-    const prod = products[currentIndex];
-    cards.forEach((card, i) => {
-      // product-image als achtergrond instellen
-      card.querySelector('.product-image').style.backgroundImage = `url('${prod.img}')`;
-      // naam
-      card.querySelector('.product-name').textContent = prod.name;
-      // prijs
-      const priceElem = card.querySelector('.product-price');
-      priceElem.textContent = (i === 0) ? prod.nlPrice : prod.dePrice;
-    });
-  }
+function updateCards() {
+  const prod = products[currentIndex];
+  cards.forEach((card) => {
+    // afbeelding en naam blijven zoals voorheen
+    card.querySelector('.product-image').style.backgroundImage = `url('${prod.img}')`;
+    card.querySelector('.product-name').textContent = prod.name;
+
+    // oude prijs in de flag
+    card.querySelector('.product-price').textContent = prod.nlPrice;
+
+    // prijzen in de cirkels
+    card.querySelector('.price-circle.nl').textContent = `€${prod.nlPrice}`;
+    card.querySelector('.price-circle.de').textContent = `€${prod.dePrice}`;
+  });
+}
+
 
   // bij laden eerste keer updaten
   document.addEventListener('DOMContentLoaded', () => {
