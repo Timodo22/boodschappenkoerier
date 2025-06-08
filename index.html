@@ -5,463 +5,320 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Boodschappenkoerier</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #4a90e2 0%, #7bb3f0 100%);
-            color: white;
-            padding: 20px 0;
-            position: relative;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #2d7a2d;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            background: #2d7a2d;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .cta-button:hover {
-            background: #236623;
-        }
-
-        .hero-truck {
-            text-align: center;
-        }
-
-        .truck-svg {
-            width: 300px;
-            height: 200px;
-        }
-
-        /* How it works section */
-        .how-it-works {
-            background: white;
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 40px;
-            font-weight: bold;
-        }
-
-        .steps-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .step-number {
-            background: #4CAF50;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .step-content h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .step-content p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        .pricing-box {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #e9ecef;
-        }
-
-        .pricing-title {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-
-        .price-item span:first-child {
-            color: #666;
-        }
-
-        .price-item span:last-child {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .savings-highlight {
-            background: #ffd54f;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .savings-highlight p {
-            font-weight: bold;
-            color: #333;
-            font-size: 18px;
-        }
-
-        /* Bottom section */
-        .bottom-section {
-            background: #f8f9fa;
-            padding: 60px 0;
-        }
-
-        .bottom-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .bottom-text h2 {
-            font-size: 36px;
-            color: #2d7a2d;
-            margin-bottom: 20px;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-
-        .product-showcase {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .product-card {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-image {
-            width: 300px;
-            height: 300px;
-            margin: 0 auto 15px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .nutella-img {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120"><rect x="20" y="20" width="60" height="80" rx="8" fill="%23D4AF37"/><rect x="25" y="25" width="50" height="15" fill="%23FF6B35"/><text x="50" y="38" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">nutella</text><circle cx="50" cy="70" r="20" fill="%238B4513"/></svg>');
-        }
-
-        .coca-cola-img {
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 120"><rect x="15" y="10" width="30" height="100" rx="15" fill="%23DC143C"/><rect x="20" y="15" width="20" height="20" fill="%23FF0000"/><text x="30" y="28" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Coca</text><text x="30" y="36" text-anchor="middle" fill="white" font-family="Arial" font-size="6" font-weight="bold">Cola</text></svg>');
-        }
-
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .product-price {
-            font-size: 24px;
-            font-weight: bold;
-            color: #DC143C;
-        }
-
-        .flag-price {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .flag {
-            width: 30px;
-            height: 20px;
-            border-radius: 3px;
-        }
-
-        .flag-nl {
-            background: linear-gradient(to bottom, #FF0000 33%, white 33%, white 66%, #0066CC 66%);
-        }
-
-        .flag-de {
-            background: linear-gradient(to bottom, black 33%, #DD0000 33%, #DD0000 66%, #FFCC00 66%);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 30px;
-            }
-
-            .hero-content h1 {
-                font-size: 36px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-            }
-
-            .truck-svg {
-                width: 250px;
-                height: 160px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .steps-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .bottom-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .bottom-text h2 {
-                font-size: 28px;
-            }
-
-            .product-showcase {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .logo {
-                font-size: 20px;
-                padding: 8px 15px;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .hero-content h1 {
-                font-size: 28px;
-            }
-
-            .steps {
-                gap: 20px;
-            }
-
-            .step {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-            .nav{
-                display: none;
-            }
-
-
-            .pricing-box {
-                padding: 20px;
-            }
-        }
-
-        /* Logo in de hero section */
+/* Reset en basis */
+/* Reset en basis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Kleuren als variabelen */
+:root {
+  --gradient-start: #4a90e2;
+  --gradient-end:   #7bb3f0;
+  --primary:        #2d7a2d;
+  --light-bg:       #f8f9fa;
+  --highlight-bg:   #ffd54f;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: #fff;
+  padding: 20px 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary);
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.hero-subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+.cta-button {
+  background: var(--primary);
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cta-button:hover {
+  background: #236623;
+}
 .hero-logo {
-    text-align: center;
+  text-align: center;
 }
 .hero-logo-img {
-    width: 600px;      /* pas aan naar gewenste breedte */
-    height: auto;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
 }
 
-@media (max-width: 768px) {
-  .hero-logo-img {
-    width: 400px;
-  }
+/* How-it-works */
+.how-it-works {
+  background: #fff;
+  padding: 60px 0;
+}
+.section-title {
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+.steps-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.step-number {
+  background: #4CAF50;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.step-content h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.step-content p {
+  color: #666;
+  font-size: 16px;
+}
+.pricing-box {
+  background: var(--light-bg);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+.pricing-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.price-item span:first-child {
+  color: #666;
+}
+.price-item span:last-child {
+  font-weight: bold;
+  color: #333;
+}
+.savings-highlight {
+  background: var(--highlight-bg);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+.savings-highlight p {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
 }
 
-@media (max-width: 480px) {
-  .hero-logo-img {
-    width: 300px;
-  }
+/* Bottom Section (Product Showcase) */
+.bottom-section {
+  background: var(--light-bg);
+  padding: 60px 0;
 }
-
+.bottom-text h2 {
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+}
+.product-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+.product-card {
+  background: #fcf3d4;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+}
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
 .product-image-wrapper {
   position: relative;
-  display: inline-block;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
 }
-
+.product-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .price-circle {
   position: absolute;
-  background: #f5f0e6; /* beige achtergrond */
-  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   border-radius: 50%;
   font-size: 14px;
+  background: #f5f0e6;
 }
-
 .price-circle.nl {
-  top: 40px;
-  left: 8px;
-  width: 48px;
-  height: 48px;
-  border: 2px solid #DC143C; /* rood */
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border: 4px solid #DC143C;
+  color: #DC143C;
 }
-
 .price-circle.de {
-  bottom: 8px;
-  right: 60px;
-  width: 80px;
-  height: 80px;
-  border: 6px solid #236623; /* groen */
-  font-size: 25px;
-
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border: 4px solid #236623;
   color: #236623;
-  z-index: 100;
 }
-.flag-price {
-  display: none;
+.flag {
+  position: absolute;
+  width: 32px;
+  height: 20px;
+}
+.flag-nl { bottom: 10px; left: 10px; }
+.flag-de { bottom: 10px; right: 10px; }
+
+/* Responsive Breakpoints */
+/* Tablet en kleiner (≤768px): hero, how-it-works en product-showcase stapelen */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  .nav{
+    display: none;
+  }
+  .nophone{
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .how-it-works .steps-container {
+    grid-template-columns: 1fr;
+  }
+  .product-showcase {
+    grid-template-columns: 1fr;
+  }
 }
 
+/* Mobiel klein (≤480px): lettergroottes iets naar beneden bijstellen */
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: 32px; }
+  .hero-subtitle     { font-size: 18px; }
+  .section-title     { font-size: 28px; }
+  .bottom-text h2    { font-size: 28px; }
+}
 
     </style>
 </head>
@@ -479,7 +336,7 @@
 
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Bespaar tot wel 30% op je wekelijkse boodschappen!</h1>
+                    <h1>Bespaar al snel 30% op je wekelijkse boodschappen!</h1>
                     <p class="hero-subtitle">Waarom duur kopen in Nederland, als het goedkoper kan in Duitsland?</p>
                     <button class="cta-button">Bestel nu via WhatsApp</button>
                 </div>
@@ -490,7 +347,86 @@
             </div>
         </div>
     </header>
+<!-- Tweede sectie: Partners -->
+<section class="partners">
+  <div class="container">
+    <h2 class="section-title">Onze Partners</h2>
+    <p class="partners-note">
+      Klik op een logo om naar de website te gaan en direct te bestellen!
+    </p>
+    <div class="partners-logos">
+      <a href="https://www.dm.de" target="_blank" rel="noopener" class="partner-logo" title="Naar DM Drogist">
+        <img src="dm.png" alt="DM Drogist">
+      </a>
+      <a href="https://www.rewe.de" target="_blank" rel="noopener" class="partner-logo" title="Naar REWE Supermarkt">
+        <img src="rewelogo.png" alt="REWE Supermarkt">
+      </a>
+      <!-- extra partners hier -->
+    </div>
+  </div>
+</section>
+<style>
+    /* Partners sectie */
+.partners {
+  background: var(--light-bg);
+  padding: 60px 0;
+}
 
+.partners .section-title {
+  font-size: 32px;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.partners-note {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.partner-logo {
+  display: block;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.partner-logo img {
+  display: block;
+  max-width: 150px;
+  height: auto;
+}
+
+.partner-logo:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
+/* Responsive aanpassingen */
+@media (max-width: 768px) {
+  .partners-logos {
+    gap: 20px;
+  }
+  .partner-logo img {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-logo img {
+    max-width: 100px;
+  }
+}
+
+</style>
 <section class="how-it-works">
   <div class="container">
     <h2 class="section-title">Hoe werkt het - in 3 stappen</h2>
@@ -540,7 +476,7 @@
         </div>
         
         <div class="savings-highlight">
-          <p>Je bespaart al snel<br>Bespaar 30% of meer<br>op je boodschappen!</p>
+          <p>Een retourritje van Eindhoven naar Duitsland om boodschappen te doen kost je al snel €20 aan brandstof en tijd – laat ons dat werk voor je doen!</p>
         </div>
       </div>
       
@@ -549,93 +485,183 @@
   </div> <!-- /.container -->
 </section>
 
-
-<section class="bottom-section" style="background-color: #fcf3d4;">
-  <div class="container">
-    <div class="bottom-content">
-      <div class="bottom-text">
-        <h2>Je bespaart al snel 30% of meer per week op je boodschappen!</h2>
+    <section class="reviews">
+      <div class="container">
+        <h2 class="section-title">Wat onze klanten zeggen</h2>
+        <div class="review-container">
+          <div class="review-slider">
+            <div class="review-card">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Profiel foto">
+              <p class="review-text">"Sinds ik via De Boodschappenkoerier bestel, bespaar ik hierdoor €50 per week!"</p>
+              <h4 class="reviewer-name">Anne - Maastricht</h4>
+            </div>
+            <div class="review-card">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profiel foto">
+              <p class="review-text">"Super handig en betrouwbaar. Ik bespaar gemiddeld €45 per week."</p>
+              <h4 class="reviewer-name">Johan - Den Bosch</h4>
+            </div>
+            <div class="review-card">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profiel foto">
+              <p class="review-text">"Geen gedoe meer met grensverkeer, en ik hou zo'n €55 over!"</p>
+              <h4 class="reviewer-name">Sophie - Tilburg</h4>
+            </div>
+            <!-- Herhaling voor naadloze scroll -->
+          </div>
+        </div>
       </div>
-      
-      <div class="product-showcase">
-        <!-- Nederlandse kaart -->
-<div class="product-card">
-  <div class="product-image-wrapper">
-    <div class="product-image"></div>
-    <span class="price-circle nl"></span>
-    <span class="price-circle de"></span>
-  </div>
-  <div class="product-name"></div>
-  <div class="flag-price">
-    <div class="flag flag-nl"></div>
-    <span class="product-price"></span>
-  </div>
-</div>
+    </section>
 
+    <script>
+      // Naadloze review-carousel
+      const slider = document.querySelector('.review-slider');
+      // Clone alle cards voor oneindige scroll
+      slider.innerHTML += slider.innerHTML;
+      let offset = 0;
+      const speed = 1; // px per frame
+      function animate() {
+        offset += speed;
+        if (offset >= slider.scrollWidth / 2) offset = 0;
+        slider.style.transform = `translateX(-${offset}px)`;
+        requestAnimationFrame(animate);
+      }
+      document.addEventListener('DOMContentLoaded', () => animate());
+    </script>
+<style>
+    /* Reviews Section */
+    .reviews {
+      background: var(--light-bg);
+      padding: 60px 0;
+    }
+    .reviews .section-title {
+      font-size: 32px;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+    .review-container {
+      overflow: hidden;
+      position: relative;
+    }
+    .review-slider {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      will-change: transform;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+      flex: 0 0 300px;
+      text-align: center;
+    }
+    .review-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .review-text {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    .reviewer-name {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .review-card { flex: 0 0 80%; }
+    }
+    @media (max-width: 480px) {
+      .reviews .section-title { font-size: 28px; }
+      .review-text { font-size: 14px; }
+    }
+    </style>
+
+
+
+<section class="bottom-section" style="background-color:#7bb3f0">
+      <div class="container">
+        <div class="bottom-content">
+          <div class="bottom-text">
+            <h2>Bekijk zelf het verschil...</h2>
+          </div>
+          <div class="product-showcase">
+            <!-- Drie product cards -->
+            <div class="product-card">
+              <div class="product-name"></div>
+              <div class="product-image-wrapper">
+                <div class="product-image"></div>
+                <span class="price-circle nl"></span>
+                <span class="price-circle de"></span>
+                <img src="flag-nl.png" alt="Nederlandse vlag" class="flag flag-nl">
+                <img src="flag-de.png" alt="Duitse vlag" class="flag flag-de">
+              </div>
+            </div>
+            <div class="nophone product-card">
+              <div class="product-name"></div>
+              <div class="product-image-wrapper">
+                <div class="product-image"></div>
+                <span class="price-circle nl"></span>
+                <span class="price-circle de"></span>
+                <img src="flag-nl.png" alt="Nederlandse vlag" class="flag flag-nl">
+                <img src="flag-de.png" alt="Duitse vlag" class="flag flag-de">
+              </div>
+            </div>
+            <div class="nophone product-card">
+              <div class="product-name"></div>
+              <div class="product-image-wrapper">
+                <div class="product-image"></div>
+                <span class="price-circle nl"></span>
+                <span class="price-circle de"></span>
+                <img src="flag-nl.png" alt="Nederlandse vlag" class="flag flag-nl">
+                <img src="flag-de.png" alt="Duitse vlag" class="flag flag-de">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<script>
-  // 1) Definieer hier al je producten
-  const products = [
-    {
-      img: 'Product2.png',
-      name: 'Nivea Shampoo',
-      nlPrice: '4,69',
-      dePrice: '1,49'
-    },
-    {
-      img: 'Product3.png',
-      name: 'Make-up remover',
-      nlPrice: '5,99',
-      dePrice: '2,49'
-    },
-        {
-      img: 'deobus.png',
-      name: 'Deodorant',
-      nlPrice: '6,99',
-      dePrice: '1,42'
-    },
-    // voeg naar wens meer items toe:
-    // {
-    //   img: 'Product4.png',
-    //   name: 'MÜSLI',
-    //   nlPrice: '2,50',
-    //   dePrice: '1,80'
-    // },
-  ];
+    </section>
 
-  let currentIndex = 0;
-  const cards = document.querySelectorAll('.product-card');
+    <script>
+      const products = [
+        { img: 'Product2.png', name: 'Shampoo', nlPrice: '5,99', dePrice: '2,49' },
+        { img: 'deobus.png',   name: 'Deodorant',      nlPrice: '6,99', dePrice: '1,42' },
+        { img: 'Product3.png',   name: 'Make-up remover',      nlPrice: '8,99', dePrice: '3,49' },
+        { img: 'Product4.png',   name: 'Nutella',      nlPrice: '3,50', dePrice: '1,29' },
+        { img: 'Product5.png',   name: 'Coca-Cola',      nlPrice: '2.95', dePrice: '1,25' },
+        // extra producten hier toevoegen indien gewenst
+      ];
 
-function updateCards() {
-  const prod = products[currentIndex];
-  cards.forEach((card) => {
-    // afbeelding en naam blijven zoals voorheen
-    card.querySelector('.product-image').style.backgroundImage = `url('${prod.img}')`;
-    card.querySelector('.product-name').textContent = prod.name;
+      const cards = document.querySelectorAll('.product-card');
 
-    // oude prijs in de flag
-    card.querySelector('.product-price').textContent = prod.nlPrice;
+      function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+      }
 
-    // prijzen in de cirkels
-    card.querySelector('.price-circle.nl').textContent = `€${prod.nlPrice}`;
-    card.querySelector('.price-circle.de').textContent = `€${prod.dePrice}`;
-  });
-}
+      function updateCards() {
+        const shuffled = shuffle(products.slice());
+        const selected = shuffled.slice(0, cards.length);
+        cards.forEach((card, idx) => {
+          const prod = selected[idx];
+          card.querySelector('.product-name').textContent = prod.name;
+          card.querySelector('.product-image').style.backgroundImage = `url('${prod.img}')`;
+          card.querySelector('.price-circle.nl').textContent = `€${prod.nlPrice}`;
+          card.querySelector('.price-circle.de').textContent = `€${prod.dePrice}`;
+        });
+      }
 
-
-  // bij laden eerste keer updaten
-  document.addEventListener('DOMContentLoaded', () => {
-    updateCards();
-    // elke 5s naar volgende product
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % products.length;
-      updateCards();
-    }, 5000);
-  });
-</script>
+      document.addEventListener('DOMContentLoaded', () => {
+        updateCards();
+        setInterval(updateCards, 5000);
+      });
+    </script>
 
 </body>
 </html>
