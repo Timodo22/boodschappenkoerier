@@ -426,6 +426,36 @@ body {
   }
 }
 
+.partners {
+  position: relative;
+  background: url('background.jpg') center/cover no-repeat;
+  padding: 60px 0;
+  overflow: hidden; /* zorgt dat de ::before niet uitsteekt */
+}
+
+.partners::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* zwart met 50% dekking */
+  pointer-events: none; /* overlay blokkeert geen muisklikken */
+}
+
+.partners .container {
+  position: relative;  /* zodat je content boven de overlay komt */
+  z-index: 1;
+}
+
+/* Pas eventueel kleuren van teksten à la .section-title en .partners-note aan naar wit: */
+.partners .section-title,
+.partners-note {
+  color: #fff;
+}
+
+
 </style>
 <section class="how-it-works">
   <div class="container">
