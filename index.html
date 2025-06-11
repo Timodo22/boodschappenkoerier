@@ -112,10 +112,7 @@ body {
 }
 
 /* How-it-works */
-.how-it-works {
-  background: #fff;
-  padding: 60px 0;
-}
+
 .section-title {
   font-size: 36px;
   color: var(--primary);
@@ -123,82 +120,7 @@ body {
   font-weight: bold;
   text-align: center;
 }
-.steps-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-.step {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-.step-number {
-  background: #4CAF50;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-.step-content h3 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-.step-content p {
-  color: #666;
-  font-size: 16px;
-}
-.pricing-box {
-  background: var(--light-bg);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #e9ecef;
-}
-.pricing-title {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-.price-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-.price-item span:first-child {
-  color: #666;
-}
-.price-item span:last-child {
-  font-weight: bold;
-  color: #333;
-}
-.savings-highlight {
-  background: var(--highlight-bg);
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  margin-top: 20px;
-}
-.savings-highlight p {
-  font-weight: bold;
-  color: #333;
-  font-size: 18px;
-}
+
 
 /* Bottom Section (Product Showcase) */
 .bottom-section {
@@ -348,89 +270,66 @@ body {
         </div>
     </header>
 <!-- Tweede sectie: Partners -->
+<!-- Moderne Partners sectie -->
 <section class="partners">
   <div class="container">
     <h2 class="section-title">Onze Partners</h2>
-    <p class="partners-note">
-      Klik op een logo om naar de website te gaan en direct te bestellen!
+    <p class="partners-subtitle">
+      Klik op een partner om direct naar hun webshop te gaan en te bestellen
     </p>
-    <div class="partners-logos">
-      <a href="https://www.dm.de" target="_blank" rel="noopener" class="partner-logo" title="Naar DM Drogist">
-        <img src="dm.png" alt="DM Drogist">
+    
+    <div class="partners-grid">
+      <a href="https://www.dm.de" target="_blank" rel="noopener" class="partner-card dm-card">
+        <div class="partner-logo-wrapper">
+          <img src="dm.png" alt="DM Drogist" class="partner-logo">
+          <div class="partner-overlay">
+            <span class="partner-cta">Bekijk Assortiment</span>
+          </div>
+        </div>
+        <div class="partner-info">
+          <h3 class="partner-name">DM Drogerie</h3>
+          <p class="partner-description">Drogisterij artikelen, cosmetica & verzorgingsproducten</p>
+          <div class="partner-benefits">
+            <span class="benefit-tag">Tot 60% goedkoper</span>
+            <span class="benefit-tag">Groot assortiment</span>
+          </div>
+        </div>
       </a>
-      <a href="https://www.rewe.de" target="_blank" rel="noopener" class="partner-logo" title="Naar REWE Supermarkt">
-        <img src="rewelogo.png" alt="REWE Supermarkt">
+      
+      <a href="https://www.rewe.de" target="_blank" rel="noopener" class="partner-card rewe-card">
+        <div class="partner-logo-wrapper">
+          <img src="rewelogo.png" alt="REWE Supermarkt" class="partner-logo">
+          <div class="partner-overlay">
+            <span class="partner-cta">Bekijk Assortiment</span>
+          </div>
+        </div>
+        <div class="partner-info">
+          <h3 class="partner-name">REWE Supermarkt</h3>
+          <p class="partner-description">Verse producten, boodschappen & huishoudelijke artikelen</p>
+          <div class="partner-benefits">
+            <span class="benefit-tag">Tot 40% goedkoper</span>
+            <span class="benefit-tag">Verse kwaliteit</span>
+          </div>
+        </div>
       </a>
-      <!-- extra partners hier -->
+    </div>
+    
+    <div class="partners-footer">
+      <p class="partners-note">
+        <span class="note-icon">💡</span>
+        Tip: Bekijk eerst de prijzen voordat je bestelt - je zult versteld staan van het verschil!
+      </p>
     </div>
   </div>
 </section>
+
 <style>
-    /* Partners sectie */
-.partners {
-  background: var(--light-bg);
-  padding: 60px 0;
-}
-
-.partners .section-title {
-  font-size: 32px;
-  color: var(--primary);
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.partners-note {
-  text-align: center;
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 30px;
-}
-
-.partners-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.partner-logo {
-  display: block;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.partner-logo img {
-  display: block;
-  max-width: 150px;
-  height: auto;
-}
-
-.partner-logo:hover {
-  transform: scale(1.05);
-  opacity: 0.8;
-}
-
-/* Responsive aanpassingen */
-@media (max-width: 768px) {
-  .partners-logos {
-    gap: 20px;
-  }
-  .partner-logo img {
-    max-width: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  .partner-logo img {
-    max-width: 100px;
-  }
-}
-
+/* Moderne Partners sectie */
 .partners {
   position: relative;
-  background: url('background.jpg') center/cover no-repeat;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
   padding: 60px 0;
-  overflow: hidden; /* zorgt dat de ::before niet uitsteekt */
+  overflow: hidden;
 }
 
 .partners::before {
@@ -440,80 +339,789 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* zwart met 50% dekking */
-  pointer-events: none; /* overlay blokkeert geen muisklikken */
+  background: url('background.jpg') center/cover no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .partners .container {
-  position: relative;  /* zodat je content boven de overlay komt */
+  position: relative;
   z-index: 1;
 }
 
-/* Pas eventueel kleuren van teksten à la .section-title en .partners-note aan naar wit: */
-.partners .section-title,
-.partners-note {
+.partners .section-title {
+  font-size: 36px;
   color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
+.partners-subtitle {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s;
+}
+
+.partner-card:hover::before {
+  left: 100%;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.partner-logo-wrapper {
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: var(--light-bg);
+  overflow: hidden;
+}
+
+.partner-logo {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.partner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(45, 122, 45, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.partner-card:hover .partner-overlay {
+  opacity: 1;
+}
+
+.partner-card:hover .partner-logo {
+  transform: scale(1.1);
+}
+
+.partner-cta {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.partner-card:hover .partner-cta {
+  background: #fff;
+  color: var(--primary);
+}
+
+.partner-info {
+  text-align: center;
+}
+
+.partner-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.partner-description {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.partner-benefits {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.benefit-tag {
+  background: var(--primary);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.dm-card:hover {
+  background: #fff;
+}
+
+.rewe-card:hover {
+  background: #fff;
+}
+
+.partners-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.partners-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.note-icon {
+  font-size: 20px;
+}
+
+/* Responsive aanpassingen */
+@media (max-width: 768px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .partner-card {
+    padding: 20px;
+  }
+  
+  .partner-logo-wrapper {
+    height: 80px;
+  }
+  
+  .partner-logo {
+    max-width: 100px;
+    max-height: 50px;
+  }
+  
+  .partner-name {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners .section-title {
+    font-size: 28px;
+  }
+  
+  .partners-subtitle {
+    font-size: 14px;
+  }
+  
+  .partners-note {
+    font-size: 12px;
+    padding: 10px 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Animatie voor eerste load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.partner-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.partner-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.partner-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+</style>
 
 </style>
-<section class="how-it-works">
-  <div class="container">
-    <h2 class="section-title">Hoe werkt het - in 3 stappen</h2>
-    
-    <!-- Nu bevatten we zowel .steps als .pricing-box in één .steps-container -->
-    <div class="steps-container">
-      
-      <!-- Linkerkolom: de drie stappen -->
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Bestel <em>zelf bij</em> je favoriete Duitse winkel</h3>
-            <p>Op onze website vind je een overzicht van onze Duitse partners, bijvoorbeeld REWE of DM. Bestel je boodschappen via hun webshop en kies voor ‘afhalen’ in de winkel. <em>Let op: wij kunnen alleen ophalen bij winkels waarmee wij samenwerken.</em></p>
-          </div>
+<style>
+        .how-it-works {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-it-works::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(123, 179, 240, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Toggle buttons */
+        .toggle-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .toggle-btn {
+            padding: 16px 32px;
+            border: none;
+            background: #fff;
+            color: var(--primary);
+            cursor: pointer;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .toggle-btn:hover::before {
+            left: 100%;
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+        }
+
+        .toggle-btn:hover:not(.active) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            background: var(--light-bg);
+        }
+
+        /* Steps grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 640px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+        .steps-grid.fade-out {
+            opacity: 0;
+        }
+
+        /* Step cards */
+        .step-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1));
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            color: var(--gradient-start);
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-title {
+            font-size: 20px;
+            font-weight: bold;
+            flex: 1;
+            line-height: 1.3;
+        }
+
+        .step-body {
+            padding: 30px;
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .step-screenshot {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-top: 1px solid #eee;
+        }
+
+        .step-screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .step-card:hover .step-screenshot img {
+            transform: scale(1.05);
+        }
+
+        /* WhatsApp button */
+        .whatsapp-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: #25D366;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: #fff;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1DA851;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Animaties */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .step-card:nth-child(1) { animation-delay: 0.1s; }
+        .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .step-card:nth-child(3) { animation-delay: 0.3s; }
+        .step-card:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .how-it-works {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .toggle-buttons {
+                margin-bottom: 40px;
+                flex-wrap: wrap;
+            }
+
+            .toggle-btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .step-header {
+                padding: 20px;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                margin-right: 15px;
+            }
+
+            .step-title {
+                font-size: 18px;
+            }
+
+            .step-body {
+                padding: 20px;
+                font-size: 15px;
+            }
+
+            .step-screenshot {
+                height: 200px;
+            }
+
+            .whatsapp-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .toggle-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+                margin-right: 12px;
+            }
+
+            .step-title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Hoe werkt het?</h2>
+            <p class="section-subtitle">Volg ons eenvoudige stappenplan en bespaar direct op je boodschappen</p>
+            
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" data-plan="dm">DM Drogist</button>
+                <button class="toggle-btn" data-plan="rewe">REWE Supermarkt</button>
+            </div>
+
+            <!-- DM Steps -->
+            <div class="steps-grid" id="dm-plan">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Kies voor "DM" uit onze partners</div>
+                    </div>
+                    <div class="step-body">
+                        Ga naar "onze partners" en klik op het DM logo om naar de website te gaan. Ontdek het uitgebreide assortiment aan drogisterij artikelen.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="DMpage.png" alt="DM Login Scherm">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Producten toevoegen</div>
+                    </div>
+                    <div class="step-body">
+                        Blader door het assortiment, voeg je favoriete producten toe aan je winkelwagen en controleer de hoeveelheden zorgvuldig.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="DMcart.png" alt="DM Winkelwagen Scherm">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Afhaallocatie kiezen</div>
+                    </div>
+                    <div class="step-body">
+                        Klik op "Für Express-Abholung wähle bitte einen dm-Markt", zoek op "Goch" en selecteer de locatie: Voßstraße 49-51.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="DMlocatie.png" alt="DM Afhaaltijd Selectie">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Bevestiging delen via WhatsApp</div>
+                    </div>
+                    <div class="step-body">
+                        Deel je bestelbevestiging en afhaalgegevens via WhatsApp. Wij regelen de rest en zorgen voor een snelle bezorging!
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="Whatsapp_background.jpg" alt="DM WhatsApp Bevestiging">
+                        <a href="https://api.whatsapp.com/send?phone=31612345678&text=Hallo%2C%20ik%20wil%20graag%20bestellen%20via%20De%20Boodschappenkoerier." target="_blank" class="whatsapp-btn">
+                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.11 17.06c-.29-.15-1.71-.84-1.98-.94-.28-.1-.48-.15-.68.15s-.78.94-.96 1.13c-.18.19-.36.21-.66.07-.29-.15-1.21-.45-2.31-1.42-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.45.13-.6.13-.13.29-.36.43-.54.14-.19.19-.32.29-.52.1-.19.05-.36-.02-.51-.07-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52-.18-.01-.39-.01-.6-.01s-.52.07-.79.36c-.27.29-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.19 2.09 3.18 5.07 4.46.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.71-.7 1.95-1.38.24-.69.24-1.28.17-1.38-.07-.1-.28-.15-.58-.3z"/>
+                                <path d="M16 2.05C8.28 2.05 2.05 8.28 2.05 16c0 2.83.74 5.48 2.14 7.78L2 30l6.38-2.11A13.94 13.94 0 0 0 16 29.95C23.72 29.95 29.95 23.72 29.95 16S23.72 2.05 16 2.05zm0 25.84c-2.5 0-4.87-.73-6.93-2.1l-.5-.31-3.78 1.25 1.27-3.68-.33-.52A11.92 11.92 0 0 1 4.05 16C4.05 9.18 9.18 4.05 16 4.05s11.95 5.13 11.95 11.95-5.13 11.95-11.95 11.95z"/>
+                            </svg>
+                            Klik hier!
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REWE Steps -->
+            <div class="steps-grid" id="rewe-plan" style="display: none;">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Ga naar REWE en selecteer filiaal</div>
+                    </div>
+                    <div class="step-body">
+                        Kies een nabijgelegen REWE-supermarkt in Duitsland en begin met het samenstellen van je boodschappenlijst.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="screenshots/rewe-step1.png" alt="REWE Filiaal Selectie">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Producten in winkelwagen plaatsen</div>
+                    </div>
+                    <div class="step-body">
+                        Voeg al je gewenste boodschappen toe aan je winkelwagen en controleer of alles correct is voordat je doorgaat.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="screenshots/rewe-step2.png" alt="REWE Winkelwagen">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Afhaalmoment instellen</div>
+                    </div>
+                    <div class="step-body">
+                        Selecteer jouw gewenste afhaaltijd en zorg ervoor dat je naam duidelijk zichtbaar is in de bestelling.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="screenshots/rewe-step3.png" alt="REWE Afhaaltijd Instellen">
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Bestelgegevens via WhatsApp sturen</div>
+                    </div>
+                    <div class="step-body">
+                        Stuur ons je bevestiging via WhatsApp. Wij halen je boodschappen op en bezorgen ze snel en veilig bij jou thuis.
+                    </div>
+                    <div class="step-screenshot">
+                        <img src="screenshots/rewe-step4.png" alt="REWE WhatsApp Verzending">
+                        <a href="https://api.whatsapp.com/send?phone=31612345678&text=Hallo%2C%20ik%20wil%20graag%20bestellen%20via%20De%20Boodschappenkoerier." target="_blank" class="whatsapp-btn">
+                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.11 17.06c-.29-.15-1.71-.84-1.98-.94-.28-.1-.48-.15-.68.15s-.78.94-.96 1.13c-.18.19-.36.21-.66.07-.29-.15-1.21-.45-2.31-1.42-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.45.13-.6.13-.13.29-.36.43-.54.14-.19.19-.32.29-.52.1-.19.05-.36-.02-.51-.07-.15-.68-1.64-.93-2.25-.24-.59-.49-.51-.68-.52-.18-.01-.39-.01-.6-.01s-.52.07-.79.36c-.27.29-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.19 2.09 3.18 5.07 4.46.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.71-.7 1.95-1.38.24-.69.24-1.28.17-1.38-.07-.1-.28-.15-.58-.3z"/>
+                                <path d="M16 2.05C8.28 2.05 2.05 8.28 2.05 16c0 2.83.74 5.48 2.14 7.78L2 30l6.38-2.11A13.94 13.94 0 0 0 16 29.95C23.72 29.95 29.95 23.72 29.95 16S23.72 2.05 16 2.05zm0 25.84c-2.5 0-4.87-.73-6.93-2.1l-.5-.31-3.78 1.25 1.27-3.68-.33-.52A11.92 11.92 0 0 1 4.05 16C4.05 9.18 9.18 4.05 16 4.05s11.95 5.13 11.95 11.95-5.13 11.95-11.95 11.95z"/>
+                            </svg>
+                            Klik hier!
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Laat je bestelling klaarzetten en wij halen het op!</h3>
-            <p>Zorg ervoor dat je bestelling correct wordt klaargezet op naam. Zodra je een bevestiging hebt ontvangen van de winkel, ben je klaar voor de volgende stap.</p>
-          </div>
-        </div>
-  
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Stuur ons je gegevens via WhatsApp</h3>
-            <p>Stuur ons via WhatsApp de bestelbevestiging, het bestelnummer en het afhaaladres. Wij halen je bestelling voor je op en bezorgen het bij je thuis in Nederland.</p>
-            <p>💶 <strong>Betaling boodschappen:</strong> Je betaalt de kosten van de boodschappen vooraf aan ons, zodat wij deze in Duitsland kunnen afrekenen.<br>
-               📦 <strong>Bezorgkosten:</strong> De bezorgkosten betaal je bij aflevering aan de deur, omdat wij pas bij het ophalen weten hoeveel kratten het zijn.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Rechterkolom: het prijs­overzicht -->
-      <div class="pricing-box">
-        <h3 class="pricing-title">Bezorgkosten overzicht:</h3>
-        <div class="price-item">
-          <span>Tot 2 kratten (60 l.)</span>
-          <span>€24,99</span>
-        </div>
-        <div class="price-item">
-          <span>Elke extra krat</span>
-          <span>€6,99</span>
-        </div>
-        
-        <div class="savings-highlight">
-          <p>Een retourritje van Eindhoven naar Duitsland om boodschappen te doen kost je al snel €20 aan brandstof en tijd – laat ons dat werk voor je doen!</p>
-        </div>
-      </div>
-      
-    </div> <!-- /.steps-container -->
-    
-  </div> <!-- /.container -->
-</section>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-btn');
+            const dmPlan = document.getElementById('dm-plan');
+            const rewePlan = document.getElementById('rewe-plan');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    toggleButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const plan = this.getAttribute('data-plan');
+                    
+                    // Add fade out effect
+                    const currentVisible = plan === 'dm' ? rewePlan : dmPlan;
+                    const toShow = plan === 'dm' ? dmPlan : rewePlan;
+                    
+                    currentVisible.classList.add('fade-out');
+                    
+                    setTimeout(() => {
+                        currentVisible.style.display = 'none';
+                        currentVisible.classList.remove('fade-out');
+                        toShow.style.display = 'grid';
+                        
+                        // Trigger animation for new cards
+                        const cards = toShow.querySelectorAll('.step-card');
+                        cards.forEach((card, index) => {
+                            card.style.animation = 'none';
+                            card.offsetHeight; // Trigger reflow
+                            card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+                        });
+                    }, 300);
+                });
+            });
+        });
+    </script>
+
 
     <section class="reviews">
       <div class="container">
