@@ -30,11 +30,15 @@ https://templatemo.com/tm-538-digital-trend
 <body>
 
      <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-<a class="navbar-brand" href="index.html">
-  <img src="logo.png" alt="Boodschappenkoerier logo" class="logo-img d-inline-block align-top"/>
-</a>
+<!-- MENU BAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="logo.png" alt="Boodschappenkoerier logo" class="logo-img d-inline-block align-top"/>
+      <span class="brand-text">De boodschappen koerier</span>
+    </a>
+    <!-- rest van je navbar -->
+
 
 <style>
   /* Standaard op grote schermen */
@@ -43,6 +47,22 @@ https://templatemo.com/tm-538-digital-trend
   max-height: 120px;
   width: auto;
 }
+/* In je bestaande <style> of templatemo-digital-trend.css */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-text {
+  padding-top: 15px;
+  margin-left: 0.5rem;    /* Ruimte tussen logo en tekst */
+  font-size: 1rem;        /* Tekstgrootte – pas aan naar wens */
+  color: #2D7A2D;         /* Merk- of accentkleur */
+  font-weight: 700;       /* Bold */
+  white-space: nowrap;    /* Voorkomt afbreken van de tekst */
+}
+
+
 
 /* Tablets en kleine desktops */
 @media (max-width: 992px) {
@@ -103,7 +123,7 @@ https://templatemo.com/tm-538-digital-trend
 
           <!-- Spectacular Title with Green Highlight -->
           <h1 class="hero-title" data-aos="fade-up">
-            <span class="highlight">Bespaar</span> op je Boodschappen!
+            <span class="highlight">Bespaar</span> op je Drogist!
           </h1>
 
           <!-- Subtext -->
