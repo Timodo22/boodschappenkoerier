@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>About Us - De boodschappen koerier</title>
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?
+    family=Montserrat:wght@400;700;900&
+    family=Roboto:wght@400;500;700&
+    display=swap" rel="stylesheet">
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/templatemo-digital-trend.css">
+
+  <style>
+    :root {
+      --primary: #2D7A2D;
+      --accent-color: #25D366;
+      --text-dark: #2c3e50;
+      --text-light: #718096;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --gradient-bg: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--white);
+    }
+
+    /* ABOUT US SECTION */
+    .about-us-section {
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: var(--primary);
+      border-radius: 3px;
+      animation: expandWidth 1.5s ease forwards 0.5s;
+      width: 0;
+    }
+
+    .section-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* MAIN CONTENT */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .about-text {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideInLeft 1s ease forwards 0.3s;
+    }
+
+    .about-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .about-text .highlight {
+      background: var(--primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .about-text .lead {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+    }
+
+    /* STATS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* VISUAL ELEMENT */
+    .about-visual {
+      position: relative;
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideInRight 1s ease forwards 0.5s;
+    }
+
+    .visual-main {
+      background: var(--white);
+      border-radius: 25px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease;
+    }
+
+    .visual-main:hover {
+      transform: translateY(-10px);
+    }
+
+    .visual-icon {
+      width: 120px;
+      height: 120px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 3rem;
+      color: var(--white);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    }
+
+    .visual-content h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .visual-content p {
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* FLOATING ELEMENTS */
+    .floating-element {
+      position: absolute;
+      background: var(--white);
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-element i {
+      color: var(--accent-color);
+      font-size: 1.2rem;
+    }
+
+    .floating-1 { top: 10%; right: -20px; }
+    .floating-2 { bottom: 20%; left: -30px; }
+    .floating-3 { top: 60%; right: -25px; }
+
+    /* TEAM VALUES */
+    .values-section { margin-top: 100px; }
+    .values-header { text-align: center; margin-bottom: 60px; }
+
+    .values-header h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+
+    .value-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .value-description {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes expandWidth {
+      to { width: 100px; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      .about-content { gap: 60px; }
+      .floating-element { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .about-us-section { padding: 80px 0; }
+      .section-title { font-size: 2.8rem; }
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+      }
+      .about-text, .about-visual {
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards 0.3s;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .visual-main { padding: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .section-title { font-size: 2.2rem; }
+      .about-text h3 { font-size: 1.8rem; }
+      .value-card { padding: 2rem; }
+      /* Statistieken ook als kolom op klein scherm */
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .stat-item { padding: 1rem; }
+      .stat-number { font-size: 2rem; }
+    }
+
+    /* ACCESSIBILITY */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    /* FOCUS STATES */
+    .value-card:focus-within {
+      outline: 3px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo.png" alt="Boodschappenkoerier logo" class="logo-img" />
+        <span class="brand-text">De boodschappen koerier</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT US -->
+  <section class="about-us-section" id="about-us">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">Over Ons</h2>
+        <p class="section-subtitle">
+          Ontdek het verhaal achter De Boodschappenkoerier en waarom duizenden klanten ons vertrouwen voor hun wekelijkse boodschappen
+        </p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Jouw <span class="highlight">Slimme Besparingspartner</span></h3>
+          <p class="lead">
+            Sinds 2020 helpen wij Nederlandse gezinnen om flink te besparen op hun wekelijkse boodschappen door slim gebruik te maken van Duitse prijzen.
+          </p>
+          <p>
+            Wat begon als een eenvoudig idee is uitgegroeid tot een betrouwbare service die duizenden klanten helpt om maandelijks honderden euro's te besparen. Door onze strategische locatie nabij de Duitse grens en jarenlange ervaring in logistiek, maken wij het mogelijk om Duitse producten snel en betrouwbaar bij je thuis te krijgen.
+          </p>
+          <p>
+            Ons team van ervaren koeriers kent alle ins en outs van de Duitse retailers en zorgt ervoor dat jouw bestelling altijd in perfecte staat aankomt. Van verse producten tot verzorgingsartikelen - wij behandelen alles met de grootst mogelijke zorg.
+          </p>
+
+          <!-- Statistics -->
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">2500+</span>
+              <span class="stat-label">Tevreden Klanten</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">€127K</span>
+              <span class="stat-label">Totaal Bespaard</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Klanttevredenheid</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="visual-main">
+            <div class="visual-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <div class="visual-content">
+              <h4>Betrouwbaarheid Voorop</h4>
+              <p>
+                Met onze jarenlange ervaring en persoonlijke aanpak zorgen wij ervoor dat elke bestelling perfect wordt afgehandeld. Jouw tevredenheid is onze prioriteit.
+              </p>
+            </div>
+          </div>
+
+          <!-- Floating Elements -->
+          <div class="floating-element floating-1">
+            <i class="fas fa-clock"></i>
+            <span>24/7 Service</span>
+          </div>
+          <div class="floating-element floating-2">
+            <i class="fas fa-shield-alt"></i>
+            <span>100% Veilig</span>
+          </div>
+          <div class="floating-element floating-3">
+            <i class="fas fa-truck-fast"></i>
+            <span>Snelle Levering</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values Section -->
+      <div class="values-section">
+        <div class="values-header">
+          <h3>Onze Kernwaarden</h3>
+          <p>Deze principes staan centraal in alles wat wij doen</p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h4 class="value-title">Klantgerichtheid</h4>
+            <p class="value-description">
+              Jouw wensen staan altijd centraal. Wij luisteren naar je feedback en verbeteren continu onze service om jou de beste ervaring te bieden.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h4 class="value-title">Duurzaamheid</h4>
+            <p class="value-description">
+              Door slimme routeplanning en geoptimaliseerde ritten dragen wij bij aan een schonere toekomst terwijl jij bespaart op je boodschappen.
+            </p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h4 class="value-title">Kwaliteit</h4>
+            <p class="value-description">
+              Van het moment van ophalen tot aan bezorging bij jou thuis, wij zorgen ervoor dat alle producten in perfecte staat blijven.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer voor animaties
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.stat-item, .value-card').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+
+    // Counter animatie voor statistieken
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = counter.textContent;
+        const numericValue = parseInt(target.replace(/[^\d]/g, ''));
+        const suffix = target.replace(/[\d]/g, '');
+        let current = 0;
+        const increment = numericValue / 50;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= numericValue) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(current) + suffix;
+          }
+        }, 30);
+      });
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats-grid');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    // Parallax effect voor floating elements
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      document.querySelectorAll('.floating-element').forEach((el, i) => {
+        const speed = 0.5 + (i * 0.1);
+        el.style.transform = `translateY(${-scrolled * speed}px)`;
+      });
+    });
+
+    // Smooth hover effects
+    document.querySelectorAll('.value-card, .stat-item').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-15px) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+  </script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+  </script>
+</body>
+</html>

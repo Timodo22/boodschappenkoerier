@@ -619,6 +619,48 @@ https://templatemo.com/tm-538-digital-trend
     text-align: center;
   }
 
+    /* Standaard op grote schermen */
+.logo-img {
+  padding-top: 20px;
+  max-height: 120px;
+  width: auto;
+}
+/* In je bestaande <style> of templatemo-digital-trend.css */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-text {
+  margin-left: 0.5rem;    /* Ruimte tussen logo en tekst */
+  font-size: 1rem;        /* Tekstgrootte – pas aan naar wens */
+  color: #2D7A2D;         /* Merk- of accentkleur */
+  font-weight: 700;       /* Bold */
+  white-space: nowrap;    /* Voorkomt afbreken van de tekst */
+}
+
+
+
+/* Tablets en kleine desktops */
+@media (max-width: 992px) {
+  .logo-img {
+    max-height: 90px;
+  }
+}
+
+/* Mobiel (smaller than Bootstrap’s “md” breakpoint) */
+@media (max-width: 768px) {
+  .logo-img {
+    max-height: 70px;
+  }
+}
+
+/* Extra klein mobiel */
+@media (max-width: 576px) {
+  .logo-img {
+    max-height: 100px;
+  }
+}
 
 
   /*---------------------------------------
