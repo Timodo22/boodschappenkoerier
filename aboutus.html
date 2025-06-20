@@ -58,6 +58,8 @@
       overflow: hidden;
     }
 
+    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -411,6 +413,53 @@
     </div>
   </nav>
 
+  <style>
+  /* Standaard op grote schermen */
+.logo-img {
+  padding-top: 20px;
+  max-height: 190px;
+  width: auto;
+}
+/* In je bestaande <style> of templatemo-digital-trend.css */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-text {
+  padding-top: 15px;
+  margin-left: 0.5rem;    /* Ruimte tussen logo en tekst */
+  font-size: 1rem;        /* Tekstgrootte – pas aan naar wens */
+  color: #2D7A2D;         /* Merk- of accentkleur */
+  font-weight: 900;       /* Bold */
+  white-space: nowrap;    /* Voorkomt afbreken van de tekst */
+}
+
+
+
+/* Tablets en kleine desktops */
+@media (max-width: 992px) {
+  .logo-img {
+    max-height: 90px;
+  }
+}
+
+/* Mobiel (smaller than Bootstrap’s “md” breakpoint) */
+@media (max-width: 768px) {
+  .logo-img {
+    max-height: 70px;
+  }
+}
+
+/* Extra klein mobiel */
+@media (max-width: 576px) {
+  .logo-img {
+    max-height: 100px;
+  }
+}
+
+</style>
+
   <!-- ABOUT US -->
   <section class="about-us-section" id="about-us">
     <div class="container">
@@ -523,6 +572,71 @@
       </div>
     </div>
   </section>
+
+      <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">Voor al uw <strong>goedkope</strong> boodschappen.</h1>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="my-4">Contact Info</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-phone mr-2 footer-icon"></i> 
+              +31 6 17239470
+            </p>
+
+<p>
+  <a href="mailto:info@boodschappenkoerier.nl"
+     class="d-inline-flex align-items-center">
+    <i class="fa fa-envelope mr-2 footer-icon"></i>
+    info@boodschappenkoerier.nl
+  </a>
+</p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+            <h4 class="my-4">Locatie</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-home mr-2 footer-icon"></i> 
+              Nederland
+            </p>
+          </div>
+
+
+
+          <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+            
+            <ul class="footer-link">
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </div>
+
+                    <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
+            <p class="copyright-text">Copyright &copy; 2025 De boodschappenkoerier
+            <br>
+            <a rel="nofollow noopener" href="https://spectux.com">Powered by Spectux</a></p>
+          </div>
+
+          <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+            <ul class="social-icon">
+              <li><a href="#" class="fa fa-instagram"></a></li>
+              <li><a href="#" class="fa fa-twitter"></a></li>
+              <li><a href="#" class="fa fa-dribbble"></a></li>
+              <li><a href="#" class="fa fa-behance"></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </footer>
 
   <script>
     // Intersection Observer voor animaties
