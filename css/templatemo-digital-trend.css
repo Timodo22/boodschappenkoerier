@@ -1,10 +1,3 @@
-/*
-
-DIGITAL TREND
-
-https://templatemo.com/tm-538-digital-trend
-
-*/
   
   @font-face {
       font-family: 'Plain-Regular';
@@ -39,9 +32,9 @@ https://templatemo.com/tm-538-digital-trend
     --menu-bg:              #4a90e2;
 
     --title-color:          #15141a;
-    --gray-color:           #909090;
+    --gray-color:           #fff;
     --link-color:           #404040;
-    --p-color:              #666262;
+    --p-color:              #fff;
 
     --base-font-family:     'Plain-Light', sans-serif;
     --title-font-family:    'Plain-Regular', sans-serif;
@@ -565,7 +558,7 @@ https://templatemo.com/tm-538-digital-trend
   -----------------------------------------*/
 
   .site-footer {
-    background: var(--dark-color);
+    background: #7bb3f0;
     padding: 7em 0 6em 0;
   }
 

@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-     <title>Digital Trend HTML Template</title>
-<!--
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-DIGITAL TREND
+  <!-- Titel -->
+  <title>Boodschappenkoerier | Bestelformulier – Plaats je Duitse boodschappen</title>
 
-https://templatemo.com/tm-538-digital-trend
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.boodschappenkoerier.nl/form.html">
 
--->
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Favicon & Apple Touch Icon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="shortcut icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Theme color voor Android, Windows & iOS Safari -->
+  <meta name="theme-color" content="#4a90e2">
+  <meta name="msapplication-TileColor" content="#4a90e2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Vul hier je bestelformulier in voor voordelige Duitse boodschappen met De Boodschappenkoerier. Bespaar tot 80% en laat snel bezorgen.">
+  <meta name="keywords" content="bestelformulier, Duitse boodschappen bestellen, goedkope boodschappen, Boodschappenkoerier">
+  <meta name="author" content="De Boodschappenkoerier">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://www.boodschappenkoerier.nl/form.html">
+  <meta property="og:title"       content="Bestelformulier | Boodschappenkoerier">
+  <meta property="og:description" content="Vul het formulier in en bestel voordelige Duitse boodschappen met De Boodschappenkoerier.">
+  <meta property="og:image"       content="https://www.boodschappenkoerier.nl/logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:url"         content="https://www.boodschappenkoerier.nl/form.html">
+  <meta name="twitter:title"       content="Bestelformulier | Boodschappenkoerier">
+  <meta name="twitter:description" content="Plaats je bestelling voor goedkope Duitse boodschappen via De Boodschappenkoerier.">
+  <meta name="twitter:image"       content="https://www.boodschappenkoerier.nl/logo.png">
 
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -371,22 +396,71 @@ https://templatemo.com/tm-538-digital-trend
       </div>
 
       <!-- Bestelinformatie -->
-      <fieldset>
-        <legend>Winkelselectie *</legend>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="retailer" id="retailEDEKA" value="EDEKA" required>
-          <label class="form-check-label" for="retailEDEKA">EDEKA</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="retailer" id="retailDM" value="DM">
-          <label class="form-check-label" for="retailDM">DM</label>
-        </div>
-      </fieldset>
+<fieldset>
+  <legend>Winkelselectie *</legend>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="retailers[]" id="retailEDEKA" value="EDEKA">
+    <label class="form-check-label" for="retailEDEKA">EDEKA</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="retailers[]" id="retailDM" value="DM">
+    <label class="form-check-label" for="retailDM">DM</label>
+  </div>
+</fieldset>
 
-      <div class="mb-3">
-        <label for="order_number">Ordernummer *</label>
-        <input type="text" id="order_number" name="order_number" class="form-control" placeholder="Bijv. 12345678" required />
+
+<div id="retailer-details">
+  <!-- EDEKA details -->
+  <div class="retailer-section" id="details-EDEKA" style="display:none; margin-top:1rem;">
+    <h5>EDEKA</h5>
+    <div class="mb-3">
+      <label for="order_number_EDEKA">Ordernummer EDEKA *</label>
+      <input type="text" id="order_number_EDEKA" name="order_number_EDEKA" class="form-control" required />
+    </div>
+    <fieldset class="mb-3">
+      <legend>Afhaalmoment EDEKA *</legend>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="pickup_day_EDEKA" id="pickupMon_EDEKA" value="Maandag ochtend (09:00–11:00)" required>
+        <label class="form-check-label" for="pickupMon_EDEKA">Maandagochtend (09:00–12:00)</label>
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="pickup_day_EDEKA" id="pickupWed_EDEKA" value="Woensdag (10:00)">
+        <label class="form-check-label" for="pickupWed_EDEKA">Woensdag (09:00–12:00)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="pickup_day_EDEKA" id="pickupFri_EDEKA" value="Vrijdagochtend (09:00–11:00)">
+        <label class="form-check-label" for="pickupFri_EDEKA">Vrijdagochtend (09:00–12:00)</label>
+      </div>
+      <small class="form-text text-muted">We halen de producten rond 10:00 uur op.</small>
+    </fieldset>
+  </div>
+
+  <!-- DM details -->
+  <div class="retailer-section" id="details-DM" style="display:none; margin-top:1rem;">
+    <h5>DM</h5>
+    <div class="mb-3">
+      <label for="order_number_DM">Ordernummer DM *</label>
+      <input type="text" id="order_number_DM" name="order_number_DM" class="form-control" required />
+    </div>
+    <fieldset class="mb-3">
+      <legend>Afhaalmoment DM *</legend>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="pickup_day_DM" id="pickupMon_DM" value="Maandag ochtend (09:00–11:00)" required>
+        <label class="form-check-label" for="pickupMon_DM">Maandagochtend (09:00–12:00)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="pickup_day_DM" id="pickupWed_DM" value="Woensdag (10:00)">
+        <label class="form-check-label" for="pickupWed_DM">Woensdag (09:00–12:00)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="pickup_day_DM" id="pickupFri_DM" value="Vrijdagochtend (09:00–11:00)">
+        <label class="form-check-label" for="pickupFri_DM">Vrijdagochtend (09:00–12:00)</label>
+      </div>
+      <small class="form-text text-muted">We halen de producten rond 10:00 uur op.</small>
+    </fieldset>
+  </div>
+</div>
+
 
       <fieldset>
         <legend>Aantal kratten *</legend>
@@ -402,17 +476,6 @@ https://templatemo.com/tm-538-digital-trend
         <input type="number" id="crate_count" name="crate_count" class="form-control mb-3" min="1" value="1" required />
       </fieldset>
 
-      <fieldset>
-        <legend>Afhaalmoment winkel *</legend>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="pickup_day" id="pickupMon" value="Maandag ochtend (09:00–11:00)" required>
-          <label class="form-check-label" for="pickupMon">Maandagochtend (09:00–11:00)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="pickup_day" id="pickupFri" value="Vrijdag ochtend (09:00–11:00)">
-          <label class="form-check-label" for="pickupFri">Vrijdagochtend (09:00–11:00)</label>
-        </div>
-      </fieldset>
 
       <!-- Bezorgadres -->
       <fieldset>
@@ -456,7 +519,16 @@ https://templatemo.com/tm-538-digital-trend
     </form>
   </div>
 </section>
+<script>
+  // Toon of verberg de details-sectie per winkel
+document.querySelectorAll('input[name="retailers[]"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    const details = document.getElementById(`details-${this.value}`);
+    details.style.display = this.checked ? 'block' : 'none';
+  });
+});
 
+</script>
 <script>
 // Dynamische berekening bezorgkosten
 document.getElementById('crate_count').addEventListener('input', function() {
@@ -488,7 +560,7 @@ document.getElementById('boodschappenForm').addEventListener('submit', async fun
   try {
     // Maak Nederlandse e-mail inhoud
     const emailData = {
-      access_key: "f357b49a-dbe4-44d4-af01-e4d66ec5b30e",
+      access_key: "e99bcbd8-4995-4b2a-aca7-ed6bc4f8dcb0",
       subject: "🛒 Nieuwe Boodschappenbestelling - " + formData.get('name'),
       from_name: "Boodschappenkoerier Website",
       message: createDutchEmailContent(formData)
@@ -534,13 +606,29 @@ document.getElementById('boodschappenForm').addEventListener('submit', async fun
 function createDutchEmailContent(formData) {
   const deliveryCost = parseFloat(formData.get('delivery_cost')).toFixed(2).replace('.', ',');
   const currentDate = new Date().toLocaleDateString('nl-NL', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
+    year: 'numeric', month: 'long', day: 'numeric',
+    hour: '2-digit', minute: '2-digit'
   });
-  
+
+  // Haal alle geselecteerde winkels op
+  const retailers = formData.getAll('retailers[]');
+  let winkelDetails = '';
+
+  retailers.forEach(retailer => {
+    // veldnamen die we eerder hebben toegevoegd:
+    const orderField   = `order_number_${retailer}`;
+    const pickupField  = `pickup_day_${retailer}`;
+    const ordernummer  = formData.get(orderField);
+    const pickupDag    = formData.get(pickupField);
+
+    winkelDetails += `
+🏪 ${retailer}
+───────────────────────────────────────────
+Ordernummer: ${ordernummer}
+Afhaalmoment: ${pickupDag}
+`;
+  });
+
   return `
 🛒 NIEUWE BOODSCHAPPENBESTELLING
 ═══════════════════════════════════════════
@@ -553,12 +641,8 @@ Naam: ${formData.get('name')}
 E-mail: ${formData.get('email')}
 Telefoon: ${formData.get('phone')}
 
-🏪 BESTELDETAILS
-───────────────────────────────────────────
-Winkel: ${formData.get('retailer')}
-Ordernummer: ${formData.get('order_number')}
-Aantal kratten: ${formData.get('crate_count')} (${formData.get('crate_option') === 'less_than_10' ? 'Minder dan 10' : '10 of meer'})
-Afhaalmoment: ${formData.get('pickup_day')}
+🏬 BESTELDETAILS PER WINKEL
+───────────────────────────────────────────${winkelDetails}
 
 🚚 BEZORGADRES
 ───────────────────────────────────────────
@@ -572,9 +656,10 @@ ${formData.get('extra_instructions') ? `📝 Extra instructies: ${formData.get('
 Bezorgkosten: €${deliveryCost}
 
 ═══════════════════════════════════════════
-Automatisch verzonden via boodschappenkoerier.nl
+Automatisch verzonden via spectux.com
   `;
 }
+
 </script>
 
 
