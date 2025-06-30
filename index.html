@@ -349,6 +349,9 @@
           </div>
         </div>
       </div>
+        <div class="partner-note">
+    Zorg bij de volgende winkels: <strong>REWE</strong> dat je <strong>bestellijst@boodschappenkoerier.nl</strong> gebruikt in de bestel gegevens zodat wij je bestelling kunnen ontvangen.
+  </div>
     </div>
     
     <!-- Meer partners binnenkort -->
@@ -362,6 +365,31 @@
   position: relative;
   overflow: hidden;
 }
+
+.partner-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+/* Centraal uitlijnen op mobiel */
+@media (max-width: 768px) {
+  .partner-card,
+  .partner-note {
+    text-align: center;
+  }
+
+  .partner-action {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-partner-primary {
+    margin: 0 auto;
+  }
+}
+
+
 
 .partners-section::before {
   content: '';
