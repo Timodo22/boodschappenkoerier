@@ -119,6 +119,121 @@
 }
 
 </style>
+  <style>
+    .postcode-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .postcode-modal {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      position: relative;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
+    .postcode-modal h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #2D7A2D;
+    }
+    .postcode-modal input {
+      width: calc(100% - 2rem);
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .postcode-modal .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      margin: 0.5rem;
+    }
+    .postcode-modal .note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .postcode-modal .close-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .postcode-feedback {
+      font-size: 0.9rem;
+      color: #c00;
+      height: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Postcode-verificatie Popup -->
+  <div id="postcodeModal" class="postcode-modal-overlay">
+    <div class="postcode-modal">
+      <button class="close-btn" id="closePostcodeModal">&times;</button>
+      <h3>Controleer uw postcode</h3>
+      <input type="text" id="modalPostcodeInput" placeholder="Bijv. 1234 AB">
+      <div class="postcode-feedback" id="modalPostcodeFeedback"></div>
+      <button class="btn btn-primary" id="validatePostcodeBtn">Verifiëren</button>
+      <div class="note">
+        Zorg bij de volgende winkels: <strong>REWE</strong> dat je <strong>bestellijst@boodschappenkoerier.nl</strong> gebruikt in de bestelgegevens zodat wij je bestelling kunnen ontvangen.
+      </div>
+    </div>
+  </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const allowedRanges = [
+        [5701,5709],[5211,5237],[5011,5049],[5280,5283],[5460,5467],
+        [5400,5409],[5340,5349],[5140,5146],[5060,5066],[5680,5685],
+        [5500,5509],[5550,5556],[5660,5667],[5670,5674],[5520,5529],
+        [5540,5541],[5570,5575],[5690,5694]
+      ];
+      const modal = document.getElementById('postcodeModal');
+      const closeBtn = document.getElementById('closePostcodeModal');
+      const input = document.getElementById('modalPostcodeInput');
+      const feedback = document.getElementById('modalPostcodeFeedback');
+      const validateBtn = document.getElementById('validatePostcodeBtn');
+
+      function hideModal() {
+        modal.style.display = 'none';
+      }
+      closeBtn.addEventListener('click', hideModal);
+
+      function isValidPostcode(pc) {
+        const raw = pc.toUpperCase().replace(/\s+/g,'');
+        const m = raw.match(/^(\d{4})[A-Z]{2}$/);
+        if (!m) return false;
+        const code = parseInt(m[1],10);
+        return allowedRanges.some(([min,max]) => code >= min && code <= max);
+      }
+
+      validateBtn.addEventListener('click', function() {
+        const val = input.value.trim();
+        if (!isValidPostcode(val)) {
+          feedback.textContent = 'Deze postcode valt buiten ons bezorggebied.';
+        } else {
+          feedback.textContent = '';
+          hideModal();
+        }
+      });
+    });
+  </script>
 
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -234,6 +349,9 @@
   box-shadow: 0 12px 30px rgba(37,211,102,0.6);
 }
 </style>
+
+
+
 
 <!-- PARTNERS SECTION -->
 <section class="partners-section" id="partners">

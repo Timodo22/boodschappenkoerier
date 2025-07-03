@@ -594,7 +594,6 @@
 
 
 <script>
-  // --- Modal confirm logica ---
   let retailConfirmation = false;
   const confirmModal = document.getElementById('confirmModal');
   const confirmYes   = document.getElementById('confirmYes');
@@ -613,13 +612,12 @@
     document.getElementById('boodschappenForm')
             .dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
   });
-
   confirmNo.addEventListener('click', () => {
     retailConfirmation = false;
     hideConfirmModal();
   });
 
-  // --- Winkel-selectie & detail-weergave ---
+  // Winkel-selectie & detail-weergave
   const retailerCheckboxes = document.querySelectorAll('input[name="retailers[]"]');
   retailerCheckboxes.forEach(cb => {
     cb.addEventListener('change', () => {
@@ -629,7 +627,7 @@
       detail.querySelectorAll('input').forEach(input => {
         input.disabled = !cb.checked;
         if (input.hasAttribute('required')) {
-          if (cb.checked) input.setAttribute('required', 'required');
+          if (cb.checked) input.setAttribute('required','required');
           else            input.removeAttribute('required');
         }
       });
@@ -637,37 +635,31 @@
     cb.dispatchEvent(new Event('change'));
   });
 
-  // Hulpfunctie om bij verandering in groep A de waarde in groep B te zetten
-function syncPickup(fromName, toName) {
-  document.querySelectorAll(`input[name="${fromName}"]`).forEach(radioA => {
-    radioA.addEventListener('change', () => {
-      const selValue = radioA.value;
-      const radioB = document.querySelector(`input[name="${toName}"][value="${selValue}"]`);
-      if (radioB) radioB.checked = true;
+  // Sync pickup-dagen
+  function syncPickup(fromName, toName) {
+    document.querySelectorAll(`input[name="${fromName}"]`).forEach(radioA => {
+      radioA.addEventListener('change', () => {
+        const selValue = radioA.value;
+        const radioB = document.querySelector(`input[name="${toName}"][value="${selValue}"]`);
+        if (radioB) radioB.checked = true;
+      });
     });
-  });
-}
-
-// Alleen synchroniseren als beide winkels geselecteerd zijn
-function setupSync() {
-  const reweCb = document.getElementById('retailrewe');
-  const dmCb    = document.getElementById('retailDM');
-
-  // schakel synchronisatie in zodra beide actief zijn
-  [reweCb, dmCb].forEach(cb => {
-    cb.addEventListener('change', () => {
-      if (reweCb.checked && dmCb.checked) {
-        syncPickup('pickup_day_rewe', 'pickup_day_DM');
-        syncPickup('pickup_day_DM', 'pickup_day_rewe');
-      }
+  }
+  function setupSync() {
+    const reweCb = document.getElementById('retailrewe');
+    const dmCb    = document.getElementById('retailDM');
+    [reweCb, dmCb].forEach(cb => {
+      cb.addEventListener('change', () => {
+        if (reweCb.checked && dmCb.checked) {
+          syncPickup('pickup_day_rewe','pickup_day_DM');
+          syncPickup('pickup_day_DM','pickup_day_rewe');
+        }
+      });
     });
-  });
-}
+  }
+  document.addEventListener('DOMContentLoaded', setupSync);
 
-// initialiseer na DOM-load
-document.addEventListener('DOMContentLoaded', setupSync);
-
-  // --- Bezorgkosten dynamisch ---
+  // Bezorgkosten dynamic
   const crateInput = document.getElementById('crate_count');
   crateInput.addEventListener('input', () => {
     let count = parseInt(crateInput.value,10) || 1;
@@ -677,7 +669,7 @@ document.addEventListener('DOMContentLoaded', setupSync);
     document.getElementById('costDisplay').textContent = cost.toFixed(2).replace('.',',');
   });
 
-  // --- Feedback helper ---
+  // Feedback helper
   function showFeedback(msg,type,html=false) {
     const fb = document.getElementById('formFeedback');
     fb.className = `form-feedback ${type}`;
@@ -685,14 +677,10 @@ document.addEventListener('DOMContentLoaded', setupSync);
     if(html) fb.innerHTML = msg; else fb.textContent = msg;
   }
 
-  // --- Aangepaste e-mailtemplate ---
+  // Email content builder
   function createDutchEmailContent(fd) {
     const now = new Date();
-    const dateNL = now.toLocaleDateString('nl-NL', {
-      year:'numeric', month:'long', day:'numeric'
-    }) + ' om ' + now.toLocaleTimeString('nl-NL', {
-      hour:'2-digit', minute:'2-digit'
-    });
+    const dateNL = now.toLocaleDateString('nl-NL',{year:'numeric',month:'long',day:'numeric'}) + ' om ' + now.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit'});
     const cost = parseFloat(fd.get('delivery_cost')).toFixed(2).replace('.',',');
 
     const winkelLines = fd.getAll('retailers[]').map(r => {
@@ -736,7 +724,7 @@ Automatisch verzonden via spectux.com
 `.trim();
   }
 
-  // --- Form submission ---
+  // Form submission met postcode-validatie
   document.getElementById('boodschappenForm').addEventListener('submit', async e => {
     // 1) Bevestiging bij 2 winkels
     const selected = Array.from(document.querySelectorAll('input[name="retailers[]"]:checked'));
@@ -749,46 +737,49 @@ Automatisch verzonden via spectux.com
     e.preventDefault();
     retailConfirmation = false;
 
-    // 2) Basisvalidatie
+    // 2) Basisvalidatie: minimaal één winkel
     const tempFd = new FormData(e.target);
     if(tempFd.getAll('retailers[]').length===0){
       showFeedback('❌ Kies minimaal één winkel.','error');
       return;
     }
 
-    // 3) Loading state
+    // 3) Postcode-validatie
+    const allowedRanges = [
+      [5701,5709],[5211,5237],[5011,5049],[5280,5283],[5460,5467],
+      [5400,5409],[5340,5349],[5140,5146],[5060,5066],[5680,5685],
+      [5500,5509],[5550,5556],[5660,5667],[5670,5674],[5520,5529],
+      [5540,5541],[5570,5575],[5690,5694]
+    ];
+    const rawPc = tempFd.get('postal_code').toUpperCase().replace(/\s+/g,'');
+    const m = rawPc.match(/^(\d{4})[A-Z]{2}$/);
+    if(!m){ showFeedback('❌ Ongeldig postcodeformaat. Gebruik bijv. “1234 AB”.','error'); return; }
+    const code = parseInt(m[1],10);
+    const inAllowed = allowedRanges.some(([min,max]) => code>=min && code<=max);
+    if(!inAllowed){ showFeedback('❌ Uw postcode valt buiten ons bezorggebied.','error'); return; }
+
+    // 4) Loading-state & verzenden
     const btn = document.getElementById('submitBtn');
     const txt = document.getElementById('submitText');
     const spn = document.getElementById('submitSpinner');
-    btn.disabled=true;
-    txt.textContent='Bezig met verzenden...';
-    spn.style.display='inline-block';
+    btn.disabled=true; txt.textContent='Bezig met verzenden...'; spn.style.display='inline-block';
     showFeedback('<div class="spinner"></div>Uw bestelling wordt verzonden...','loading',true);
-
     try {
-      // 4) Bouw je eigen FormData, zónder alle form-velden
       const fd = new FormData();
       fd.append('access_key','e99bcbd8-4995-4b2a-aca7-ed6bc4f8dcb0');
       fd.append('subject',`🛒 Nieuwe bestelling - ${tempFd.get('name')}`);
       fd.append('from_name','Boodschappenkoerier Website');
-      fd.append('message', createDutchEmailContent(tempFd));
-
-      // Ontvangers bepalen
-      const to = [];
-      if(to.length===0)                                 to.push('info@boodschappenkoerier.nl');
-      fd.append('to', to.join(','));
-
-      // 5) Verzend de request
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method:'POST',
-        body: fd
-      });
+      fd.append('message',createDutchEmailContent(tempFd));
+      const to=[];
+      if(to.length===0) to.push('info@boodschappenkoerier.nl');
+      fd.append('to',to.join(','));
+      const res = await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});
       const result = await res.json();
       if(result.success){
         showFeedback('✅ <strong>Bestelling succesvol verzonden!</strong><br>We nemen zo snel mogelijk contact met u op.','success',true);
         e.target.reset();
         retailerCheckboxes.forEach(cb => {
-          const det = document.getElementById(`details-${cb.value}`);
+          const det=document.getElementById(`details-${cb.value}`);
           if(det) det.style.display='none';
         });
       } else {
@@ -798,12 +789,14 @@ Automatisch verzonden via spectux.com
       console.error(err);
       showFeedback('❌ <strong>Er is iets misgegaan!</strong><br>Probeer het nogmaals.','error',true);
     } finally {
-      btn.disabled=false;
-      txt.textContent='Bestelling Verzenden';
-      spn.style.display='none';
+      btn.disabled=false; txt.textContent='Bestelling Verzenden'; spn.style.display='none';
     }
   });
-</script>
+  </script>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 
 
 
