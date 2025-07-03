@@ -62,6 +62,32 @@
 </head>
 <body>
 
+  <div class="announcement-bar">
+  ❗let op: als u besteld bij REWE kunt u bij hen niet online afrekenen, u zult dit bedrag van te voren aan ons moeten overmaken zodat wij daar kunnen afrekenen op locatie❗
+</div>
+<style>
+.announcement-bar {
+  position: sticky;    /* of fixed als je 'm altijd bovenin wilt */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;        /* écht de volledige viewport breedte */
+  background-color: #ffc107;
+  color: #000;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  z-index: 3000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+</style>
+
      <!-- MENU BAR -->
 <!-- MENU BAR -->
 <nav class="navbar navbar-expand-lg">
@@ -178,9 +204,12 @@
       color: #c00;
       height: 1.2rem;
     }
+
   </style>
 </head>
 <body>
+  <!-- Announcement Bar -->
+
 
   <!-- Postcode-verificatie Popup -->
   <div id="postcodeModal" class="postcode-modal-overlay">
@@ -415,64 +444,58 @@
       </div>
       
       <!-- REWE Partner Card -->
-      <div class="col-lg-5 col-md-6 col-12 mb-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="partner-card beta">
-          <div class="partner-header">
-            <div class="partner-logo">
-              <img src="rewelogo.png" alt="REWE Logo" class="parnters-logo-img">
-            </div>
-            <div class="partner-status">
-              <span class="status-badge beta-badge">
-                <i class="fas fa-flask"></i>
-                Bèta
-              </span>
-            </div>
-          </div>
-          
-          <div class="partner-content">
-            <h3 class="partner-name">REWE Supermarkt</h3>
-            <p class="partner-description">
-              Duitslands populaire supermarktketen. Verse producten, merkartikelen en dagelijkse boodschappen tegen scherpe prijzen.
-            </p>
-            
-            <div class="partner-features">
-              <div class="feature">
-                <i class="fas fa-apple-alt"></i>
-                <span>Verse producten</span>
-              </div>
-              <div class="feature">
-                <i class="fas fa-bread-slice"></i>
-                <span>Dagelijkse boodschappen</span>
-              </div>
-              <div class="feature">
-                <i class="fas fa-tags"></i>
-                <span>Merkartikelen</span>
-              </div>
-            </div>
-            
-            <div class="partner-action">
-              <a href="form.html" target="_blank" class="btn btn-partner-primary">
-                <i class="fas fa-shopping-cart"></i>
-                Bestel nu bij REWE
-              </a>
-            </div>
-          </div>
-          
-          <div class="partner-glow beta-glow"></div>
-          <div class="beta-overlay">
-            <div class="beta-label">
-              <i class="fas fa-flask"></i>
-              <span>Bèta</span>
-            </div>
-          </div>
+<div class="col-lg-5 col-md-6 col-12 mb-4" data-aos="fade-up" data-aos-delay="300">
+  <div class="partner-card available">
+    <div class="partner-header">
+      <div class="partner-logo">
+        <img src="rewelogo.png" alt="REWE Logo" class="parnters-logo-img">
+      </div>
+      <div class="partner-status">
+        <span class="status-badge active">
+          <i class="fas fa-check-circle"></i>
+          Beschikbaar
+        </span>
+      </div>
+    </div>
+
+    <div class="partner-content">
+      <h3 class="partner-name">REWE Supermarkt</h3>
+      <p class="partner-description">
+        Duitslands populaire supermarktketen. Verse producten, merkartikelen en dagelijkse boodschappen tegen scherpe prijzen.
+      </p>
+
+      <div class="partner-features">
+        <div class="feature">
+          <i class="fas fa-apple-alt"></i>
+          <span>Verse producten</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-bread-slice"></i>
+          <span>Dagelijkse boodschappen</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-tags"></i>
+          <span>Merkartikelen</span>
         </div>
       </div>
-        <div class="partner-note">
-    Zorg bij de volgende winkels: <strong>REWE</strong> dat je <strong>bestellijst@boodschappenkoerier.nl</strong> gebruikt in de bestel gegevens zodat wij je bestelling kunnen ontvangen.
-  </div>
+
+      <div class="partner-action">
+        <a href="form.html" target="_blank" class="btn btn-partner-primary">
+          <i class="fas fa-shopping-cart"></i>
+          Bestel nu bij REWE
+        </a>
+      </div>
+
+      <!-- Hier komt de note onder de knop -->
+      <div class="partner-note" style="margin-top:1rem; font-size:0.9rem; color:#555;">
+        Zorg bij REWE dat je <strong>bestellijst@boodschappenkoerier.nl</strong> gebruikt in de bestelgegevens zodat wij je bestelling kunnen ontvangen.
+      </div>
     </div>
-    
-    <!-- Meer partners binnenkort -->
+
+    <div class="partner-glow"></div>
+  </div>
+</div>
+</div>
 </section>
 
 <style>
