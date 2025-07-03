@@ -787,7 +787,6 @@ Automatisch verzonden via spectux.com
       if(result.success){
         showFeedback('✅ <strong>Bestelling succesvol verzonden!</strong><br>We nemen zo snel mogelijk contact met u op.','success',true);
         e.target.reset();
-        document.getElementById('costDisplay').textContent='22,50';
         retailerCheckboxes.forEach(cb => {
           const det = document.getElementById(`details-${cb.value}`);
           if(det) det.style.display='none';
