@@ -590,6 +590,86 @@
   </div>
 </section>
 
+<!-- Verborgen Google Translate element -->
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'nl',
+      includedLanguages: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<button id="lang-toggle" class="notranslate" translate="no">EN</button>
+
+
+<script>
+document.getElementById('lang-toggle').addEventListener('click', () => {
+  const host = location.hostname;
+  const domain = host.startsWith('www.') ? host.slice(4) : host;
+  const isEn = document.cookie.includes('googtrans=/nl/en');
+
+  // cookie geldig voor alle subdomeinen
+  const cookieBase = `path=/;domain=.${domain};expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+  if (!isEn) {
+    // schakelen naar Engels
+    document.cookie = `googtrans=/nl/en;${cookieBase}`;
+    document.cookie = `googtrans=/nl/en;${cookieBase}`; // dubbel zetten voor veiligheid
+  } else {
+    // terug naar Nederlands
+    document.cookie = `googtrans=/nl/nl;${cookieBase}`;
+    document.cookie = `googtrans=/nl/nl;${cookieBase}`;
+  }
+  // herlaad om de nieuwe taal toe te passen
+  location.reload();
+});
+</script>
+
+
+
+
+
+<style>
+
+  /* Verberg de top‐banner en eventuele extra frames */
+  .goog-te-banner-frame.skiptranslate,
+  .goog-te-banner-frame,
+  iframe.goog-te-banner-frame,
+  .goog-te-menu-frame {
+    display: none !important;
+  }
+  /* Reset de body-offset die Google zet */
+  body {
+    top: 0 !important;
+    margin-top: 0 !important;
+  }
+  /* Verberg het kleine “G” icoon en de gadget zelf */
+  .goog-logo-link,
+  .goog-te-gadget-icon,
+  .goog-te-gadget {
+    display: none !important;
+  }
+
+#lang-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.1s;
+}
+#lang-toggle:hover { transform: translateY(-2px); }
+</style>
 
 
 
@@ -745,12 +825,46 @@ Automatisch verzonden via spectux.com
     }
 
     // 3) Postcode-validatie
-    const allowedRanges = [
-      [5701,5709],[5211,5237],[5011,5049],[5280,5283],[5460,5467],
-      [5400,5409],[5340,5349],[5140,5146],[5060,5066],[5680,5685],
-      [5500,5509],[5550,5556],[5660,5667],[5670,5674],[5520,5529],
-      [5540,5541],[5570,5575],[5690,5694]
-    ];
+const allowedRanges = [
+  // — Noord-Brabant (bestaande)
+  [5701, 5709], // Helmond
+  [5211, 5237], // ’s-Hertogenbosch
+  [5011, 5049], // Tilburg
+  [5280, 5283], // Boxtel
+  [5460, 5467], // Veghel
+  [5400, 5409], // Uden
+  [5340, 5349], // Oss
+  [5140, 5146], // Waalwijk
+  [5060, 5066], // Oisterwijk
+  [5680, 5685], // Best
+  [5500, 5509], // Veldhoven
+  [5550, 5556], // Valkenswaard
+  [5660, 5667], // Geldrop
+  [5670, 5674], // Nuenen
+  [5520, 5529], // Eersel
+  [5540, 5541], // Reusel
+  [5570, 5575], // Bergeijk
+  [5690, 5694], // Son en Breugel
+
+  // — Eindhoven en wijken (toegevoegd)
+  [5611, 5658], // Eindhoven algemeen
+  [5611, 5615], // Centrum
+  [5651, 5653], // Strijp
+  [5621, 5632], // Woensel-Noord/Zuid
+  [5641, 5644], // Tongelre
+  [5616, 5646], // Stratum
+  [5615, 5654], // Gestel
+  [5657, 5658], // Meerhoven
+
+  // — Optioneel: kleinere plaatsen binnen 50 km
+   [5590, 5595], // Heeze-Leende
+   [5720, 5721], // Asten
+   [5710, 5712], // Someren
+   [5740, 5741], // Laarbeek
+   [5420, 5425], // Gemert-Bakel
+   [5270, 5272], // Sint-Michielsgestel
+];
+
     const rawPc = tempFd.get('postal_code').toUpperCase().replace(/\s+/g,'');
     const m = rawPc.match(/^(\d{4})[A-Z]{2}$/);
     if(!m){ showFeedback('❌ Ongeldig postcodeformaat. Gebruik bijv. “1234 AB”.','error'); return; }
