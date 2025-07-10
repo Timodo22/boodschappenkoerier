@@ -84,21 +84,16 @@
 
     
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 2;
-    }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 80px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 1s ease forwards;
-    }
+
+
+.stappenplan-section .section-subtitle {
+  text-align: center;
+  margin: 1.5rem auto 0; /* 1.5rem top-marge, 0 onder, auto opzij */
+  max-width: 600px;
+}
+
+
 
     .section-title {
       font-family: 'Montserrat', sans-serif;
@@ -128,7 +123,7 @@
       font-size: 1.3rem;
       color: var(--text-light);
       max-width: 600px;
-      margin: 0 auto;
+
       font-weight: 400;
     }
 
@@ -429,16 +424,28 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-        <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="Stappenplan.html" class="nav-link ">Stappenplan</a></li>
-          <li class="nav-item"><a href="aboutus.html" class="nav-link active">Over ons</a></li>
+          <li class="nav-item"><a href="Stappenplan.html" class="nav-link active">Stappenplan</a></li>
+          <li class="nav-item"><a href="aboutus.html" class="nav-link">Over ons</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link contact">Contact</a></li>
-        </ul>
         </ul>
       </div>
     </div>
   </nav>
+
+  <div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'nl',
+      includedLanguages: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<button id="lang-toggle" class="notranslate" translate="no">EN</button>
 
   <style>
   /* Standaard op grote schermen */
@@ -462,7 +469,22 @@
   white-space: nowrap;    /* Voorkomt afbreken van de tekst */
 }
 
-
+#lang-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.1s;
+}
+#lang-toggle:hover { transform: translateY(-2px); }
 
 /* Tablets en kleine desktops */
 @media (max-width: 992px) {
@@ -488,117 +510,247 @@
 </style>
 
   <!-- ABOUT US -->
-  <section class="about-us-section" id="about-us">
-    <div class="container">
-      <!-- Section Header -->
-      <div class="section-header">
-        <h2 class="section-title">Over Ons</h2>
-        <p class="section-subtitle">
-          Ontdek het verhaal achter De Boodschappenkoerier en waarom duizenden klanten ons vertrouwen voor hun wekelijkse boodschappen
-        </p>
-      </div>
+<!-- ===== Stappenplan Sectie ===== -->
+<section class="stappenplan-section" id="stappenplan">
+  <div class="container">
+    <!-- Header -->
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2 class="section-title">Stappenplan Bestellen bij REWE &amp; DM</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Volg deze stappen om snel en voordelig je boodschappen in Duitsland te bestellen
+      </p>
+    </div>
 
-      <!-- Main Content -->
-      <div class="about-content">
-        <div class="about-text">
-          <h3>Jouw <span class="highlight">Slimme Besparingspartner</span></h3>
-          <p class="lead">
-            Sinds 2020 helpen wij Nederlandse gezinnen om flink te besparen op hun wekelijkse boodschappen door slim gebruik te maken van Duitse prijzen.
-          </p>
-          <p>
-            Wat begon als een eenvoudig idee is uitgegroeid tot een betrouwbare service die duizenden klanten helpt om maandelijks honderden euro's te besparen. Door onze strategische locatie nabij de Duitse grens en jarenlange ervaring in logistiek, maken wij het mogelijk om Duitse producten snel en betrouwbaar bij je thuis te krijgen.
-          </p>
-          <p>
-            Ons team van ervaren koeriers kent alle ins en outs van de Duitse retailers en zorgt ervoor dat jouw bestelling altijd in perfecte staat aankomt. Van verse producten tot verzorgingsartikelen - wij behandelen alles met de grootst mogelijke zorg.
-          </p>
-
-          <!-- Statistics -->
-          <div class="stats-grid">
-            <div class="stat-item">
-              <span class="stat-number">2500+</span>
-              <span class="stat-label">Tevreden Klanten</span>
+    <!-- Centred column met stappen -->
+    <div class="row justify-content-center" data-aos="fade-left" data-aos-delay="200">
+      <div class="col-lg-8 mx-auto">
+        <ol class="order-steps">
+          <!-- 1 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">1</span>
+              <h4>Account aanmaken</h4>
             </div>
-            <div class="stat-item">
-              <span class="stat-number">€127K</span>
-              <span class="stat-label">Totaal Bespaard</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">98%</span>
-              <span class="stat-label">Klanttevredenheid</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-visual">
-          <div class="visual-main">
-            <div class="visual-icon">
-              <i class="fas fa-handshake"></i>
-            </div>
-            <div class="visual-content">
-              <h4>Betrouwbaarheid Voorop</h4>
-              <p>
-                Met onze jarenlange ervaring en persoonlijke aanpak zorgen wij ervoor dat elke bestelling perfect wordt afgehandeld. Jouw tevredenheid is onze prioriteit.
-              </p>
-            </div>
-          </div>
-
-          <!-- Floating Elements -->
-          <div class="floating-element floating-1">
-            <i class="fas fa-clock"></i>
-            <span>24/7 Service</span>
-          </div>
-          <div class="floating-element floating-2">
-            <i class="fas fa-shield-alt"></i>
-            <span>100% Veilig</span>
-          </div>
-          <div class="floating-element floating-3">
-            <i class="fas fa-truck-fast"></i>
-            <span>Snelle Levering</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Values Section -->
-      <div class="values-section">
-        <div class="values-header">
-          <h3>Onze Kernwaarden</h3>
-          <p>Deze principes staan centraal in alles wat wij doen</p>
-        </div>
-
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">
-              <i class="fas fa-heart"></i>
-            </div>
-            <h4 class="value-title">Klantgerichtheid</h4>
-            <p class="value-description">
-              Jouw wensen staan altijd centraal. Wij luisteren naar je feedback en verbeteren continu onze service om jou de beste ervaring te bieden.
+            <p>
+              Maak een gratis account aan op de website van
+              <a href="https://shop.rewe.de/" target="_blank">REWE</a>
+              of
+              <a href="https://www.dm.de/" target="_blank">DM</a>.
+              Zorg dat je je naam, e-mail en een sterk wachtwoord invult.
             </p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon">
-              <i class="fas fa-leaf"></i>
+          </li>
+          <!-- 2 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">2</span>
+              <h4>Producten selecteren</h4>
             </div>
-            <h4 class="value-title">Duurzaamheid</h4>
-            <p class="value-description">
-              Door slimme routeplanning en geoptimaliseerde ritten dragen wij bij aan een schonere toekomst terwijl jij bespaart op je boodschappen.
+            <p>
+              Blader door de categorieën of gebruik de zoekfunctie om je favoriete producten
+              toe te voegen aan je winkelmandje. Let op speciale aanbiedingen en kortingsacties!
             </p>
-          </div>
-
-          <div class="value-card">
-            <div class="value-icon">
-              <i class="fas fa-gem"></i>
+          </li>
+          <!-- 3 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">3</span>
+              <h4>Afhaalmethode ‘Ophalen’ kiezen</h4>
             </div>
-            <h4 class="value-title">Kwaliteit</h4>
-            <p class="value-description">
-              Van het moment van ophalen tot aan bezorging bij jou thuis, wij zorgen ervoor dat alle producten in perfecte staat blijven.
+            <p>
+              Kies bij de betaal- of afleveropties voor “Eigen afhaling in filiaal” en selecteer
+              één van de onderstaande locaties:
             </p>
-          </div>
-        </div>
+            <ul class="pickup-links">
+              <li>
+                <strong>REWE Straelen</strong><br>
+                <a href="https://www.google.com/maps?client=safari&sca_esv=2d9e78bbee00db21&hl=nl-nl&kgmid=/g/11h_443r_y&shndl=30&um=1&ie=UTF-8&fb=1&gl=nl&sa=X&geocode=KfPPZxElXcdHMQf-pDxchihU&daddr=Ostwall+21,+47638+Straelen,+Duitsland"
+                   target="_blank">
+                  Ostwall 21, 47638 Straelen
+                </a>
+              </li>
+              <li>
+                <strong>DM Goch</strong><br>
+                <a href="https://www.google.com/maps?client=safari&sca_esv=168bb5d2636e6f00&hl=nl-nl&kgmid=/g/11fn4fdmfk&shndl=30&um=1&ie=UTF-8&fb=1&gl=nl&sa=X&geocode=KbkqWZyrXcdHMXE7n2I9prSR&daddr=Ostwall+33,+47638+Straelen,+Duitsland"
+                   target="_blank">
+                  Ostwall 33, 47638 Straelen
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- 4 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">4</span>
+              <h4>Afhaaltijd kiezen</h4>
+            </div>
+            <p>
+              Selecteer een tijd tussen <strong>09:00 en 12:00 uur</strong> op de dag dat jij wilt
+              dat onze koerier de bestelling ophaalt in het filiaal.
+            </p>
+          </li>
+          <!-- 5 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">5</span>
+              <h4>Bestelgegevens invullen</h4>
+            </div>
+            <p>
+              Vul bij “Bestelnotitie” of “Opmerkingen” het volgende e-mail adres in:
+              <code>bestellijst@boodschappenkoerier.nl</code>. Zo ontvangen wij meteen jouw
+              bestel­bevestiging en kunnen wij het direct voor je inplannen.
+            </p>
+          </li>
+          <!-- 6 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">6</span>
+              <h4>Betalen bij REWE</h4>
+            </div>
+            <p>
+              Bij REWE kun je niet direct online afrekenen. Je ontvangt van ons binnen enkele
+              minuten een <strong>betaallink</strong> per e-mail. Volg die link om de order en
+              bezorg­kosten af te ronden.
+            </p>
+          </li>
+          <!-- 7 -->
+          <li>
+            <div class="step-header">
+              <span class="step-number">7</span>
+              <h4>Bezorging thuis</h4>
+            </div>
+            <p>
+              Wij halen je boodschappen op en bezorgen ze dezelfde dag na 12:00 uur bij jou thuis.
+              Houd je telefoon bij de hand voor updates!
+            </p>
+          </li>
+        </ol>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+
+
+
+<style>
+    /* ===== Stappenplan Sectie ===== */
+.stappenplan-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+.stappenplan-section .section-header {
+  margin-bottom: 40px;
+}
+
+.stappenplan-section .section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.75rem;
+  color: #2d7a2d;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stappenplan-section .section-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.order-steps {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+
+.order-steps li {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 60px;
+}
+
+.order-steps .step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.order-steps .step-number {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.order-steps h4 {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0 0 0 0.75rem;
+  font-weight: 600;
+}
+
+.order-steps p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pickup-links {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.pickup-links li {
+  margin-bottom: 0.75rem;
+}
+
+.pickup-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.pickup-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .stappenplan-section {
+    padding: 60px 0;
+  }
+  .order-steps li {
+    padding-left: 50px;
+    margin-bottom: 2rem;
+  }
+  .order-steps .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .order-steps h4 {
+    font-size: 1.1rem;
+  }
+}
+
+</style>
 
       <footer class="site-footer">
       <div class="container">

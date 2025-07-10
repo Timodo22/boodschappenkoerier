@@ -143,19 +143,7 @@
     </a>
 
 <!-- Verborgen Google Translate element -->
-<div id="google_translate_element" style="display:none;"></div>
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'nl',
-      includedLanguages: 'en',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<button id="lang-toggle" class="notranslate" translate="no">EN</button>
+
 
 
 <script>
@@ -432,7 +420,10 @@ const allowedRanges = [
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link smoothScroll">Home</a>
+                        <a href="index.html" class="nav-link active smoothScroll">Home</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a href="Stappenplan.html" class="nav-link smoothScroll">Stappenlan</a>
                     </li>
                     <li class="nav-item">
                         <a href="aboutus.html" class="nav-link smoothScroll">Over ons</a>
@@ -538,7 +529,52 @@ const allowedRanges = [
 }
 </style>
 
+<!-- Stappenplan CTA -->
+<section class="hero-steps py-5">
+  <div class="container text-center">
+    <h2 class="hero-steps-title mb-3">Kijk hier ons stappenplan!</h2>
+    <p class="hero-steps-subtitle mb-4">
+      Volg in een paar klikken hoe je snel en voordelig je boodschappen in Duitsland bestelt.
+    </p>
+    <a href="Stappenplan.html" class="btn btn-lg btn-primary">
+      Bekijk Stappenplan
+    </a>
+  </div>
+</section>
 
+<style>
+  /* ===== Hero CTA voor het Stappenplan ===== */
+.hero-steps {
+  background: var(--gradient-bg);
+}
+
+.hero-steps-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.hero-steps-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-steps .btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.hero-steps .btn-primary:hover {
+  background-color: darken(var(--primary), 10%);
+}
+
+</style>
 
 
 <!-- PARTNERS SECTION -->
@@ -1113,6 +1149,12 @@ const allowedRanges = [
   }
 }
 </style>
+
+
+
+
+
+
 <section class="bottom-section" style="background-color:#7bb3f0">
       <div class="container">
         <div class="bottom-content">
