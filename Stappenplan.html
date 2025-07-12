@@ -461,12 +461,20 @@
 }
 
 .brand-text {
+  /* Standaard (desktop/tablet) */
   padding-top: 15px;
-  margin-left: 0.5rem;    /* Ruimte tussen logo en tekst */
-  font-size: 1rem;        /* Tekstgrootte – pas aan naar wens */
-  color: #2D7A2D;         /* Merk- of accentkleur */
-  font-weight: 900;       /* Bold */
-  white-space: nowrap;    /* Voorkomt afbreken van de tekst */
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  color: #2D7A2D;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* Voor “kleine devices” (bijvoorbeeld smartphones tot 600 px breed) */
+@media screen and (max-width: 600px) {
+  .brand-text {
+    font-size: 1rem;
+  }
 }
 
 #lang-toggle {
@@ -560,32 +568,43 @@
               Kies bij de betaal- of afleveropties voor “Eigen afhaling in filiaal” en selecteer
               één van de onderstaande locaties:
             </p>
-            <ul class="pickup-links">
-              <li>
-                <strong>REWE Straelen</strong><br>
-                <a href="https://www.google.com/maps?client=safari&sca_esv=2d9e78bbee00db21&hl=nl-nl&kgmid=/g/11h_443r_y&shndl=30&um=1&ie=UTF-8&fb=1&gl=nl&sa=X&geocode=KfPPZxElXcdHMQf-pDxchihU&daddr=Ostwall+21,+47638+Straelen,+Duitsland"
-                   target="_blank">
-                  Ostwall 21, 47638 Straelen
-                </a>
-              </li>
-              <li>
-                <strong>DM Goch</strong><br>
-                <a href="https://www.google.com/maps?client=safari&sca_esv=168bb5d2636e6f00&hl=nl-nl&kgmid=/g/11fn4fdmfk&shndl=30&um=1&ie=UTF-8&fb=1&gl=nl&sa=X&geocode=KbkqWZyrXcdHMXE7n2I9prSR&daddr=Ostwall+33,+47638+Straelen,+Duitsland"
-                   target="_blank">
-                  Ostwall 33, 47638 Straelen
-                </a>
-              </li>
-            </ul>
+<ul class="pickup-links">
+  <li>
+    <strong>REWE Straelen</strong><br>
+    <a href="https://www.google.com/maps?daddr=Ostwall+21,+47638+Straelen,+Deutschland" target="_blank">
+      Ostwall 21, 47638 Straelen, Duitsland
+    </a>
+  </li>
+  <li>
+    <strong>DM Goch</strong><br>
+    <a href="https://www.google.com/maps?daddr=Ostwall+33,+47638+Straelen,+Deutschland" target="_blank">
+      Ostwall 33, 47638 Straelen, Duitsland
+    </a>
+  </li>
+  <li>
+    <strong>REWE Hinsbeck</strong><br>
+    <a href="https://www.google.com/maps?daddr=Rosental+30,+41334+Nettetal,+Germany" target="_blank">
+      Rosental 30, 41334 Nettetal (Hinsbeck), Duitsland
+    </a>
+  </li>
+  <li>
+    <strong>DM Nettetal</strong><br>
+    <a href="https://www.google.com/maps?daddr=Johannes-Cleven-Stra%C3%9Fe+4,+41334+Nettetal,+Germany" target="_blank">
+      Johannes-Cleven-Straße 4, 41334 Nettetal, Duitsland
+    </a>
+  </li>
+</ul>
+
           </li>
           <!-- 4 -->
           <li>
             <div class="step-header">
               <span class="step-number">4</span>
-              <h4>Afhaaltijd kiezen</h4>
+              <h4>Afhaaldag en -tijd kiezen</h4>
             </div>
             <p>
-              Selecteer een tijd tussen <strong>09:00 en 12:00 uur</strong> op de dag dat jij wilt
-              dat onze koerier de bestelling ophaalt in het filiaal.
+              Selecteer een <strong>dag</strong> (maandag, woensdag of vrijdag) én een <strong>tijd</strong> tussen
+              <strong>09:00 en 12:00 uur</strong> op de dag dat onze koerier jouw bestelling komt ophalen.
             </p>
           </li>
           <!-- 5 -->
@@ -595,21 +614,22 @@
               <h4>Bestelgegevens invullen</h4>
             </div>
             <p>
-              Vul bij “Bestelnotitie” of “Opmerkingen” het volgende e-mail adres in:
-              <code>bestellijst@boodschappenkoerier.nl</code>. Zo ontvangen wij meteen jouw
-              bestel­bevestiging en kunnen wij het direct voor je inplannen.
+              stuur de bevestigingsmail die je van REWE of DM ontvangt doorsturen naar:
+              <code>bestellijst@boodschappenkoerier.nl</code>.<br>
+              <strong> daarnaast Vul ons formulier in</strong> zodat wij alle benodigde gegevens direct hebben.
             </p>
           </li>
           <!-- 6 -->
           <li>
             <div class="step-header">
               <span class="step-number">6</span>
-              <h4>Betalen bij REWE</h4>
+              <h4>Betalen</h4>
             </div>
             <p>
-              Bij REWE kun je niet direct online afrekenen. Je ontvangt van ons binnen enkele
-              minuten een <strong>betaallink</strong> per e-mail. Volg die link om de order en
-              bezorg­kosten af te ronden.
+              <strong>Bij DM</strong> kun je je bestelling direct online afrekenen.<br>
+              <strong>Bij REWE</strong> is online betalen helaas niet mogelijk:
+              je ontvangt binnen enkele minuten een betaallink per e-mail om het orderbedrag
+              aan ons te voldoen.  <strong>De bezorgkosten betaal je bij aflevering aan de deur.</strong>
             </p>
           </li>
           <!-- 7 -->
@@ -628,6 +648,7 @@
     </div>
   </div>
 </section>
+
 
 <script>
   AOS.init({

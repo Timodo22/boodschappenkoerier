@@ -134,14 +134,21 @@
 }
 
 .brand-text {
+  /* Standaard (desktop/tablet) */
   padding-top: 15px;
-  margin-left: 0.5rem;    /* Ruimte tussen logo en tekst */
-  font-size: 1rem;        /* Tekstgrootte – pas aan naar wens */
-  color: #2D7A2D;         /* Merk- of accentkleur */
-  font-weight: 900;       /* Bold */
-  white-space: nowrap;    /* Voorkomt afbreken van de tekst */
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  color: #2D7A2D;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
+/* Voor “kleine devices” (bijvoorbeeld smartphones tot 600 px breed) */
+@media screen and (max-width: 600px) {
+  .brand-text {
+    font-size: 1rem;
+  }
+}
 
 
 /* Tablets en kleine desktops */
@@ -527,19 +534,7 @@
 </div>
 
 
-      <fieldset>
-        <legend>Aantal kratten *</legend>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="crate_option" id="crateLess10" value="less_than_10" checked>
-          <label class="form-check-label" for="crateLess10">Minder dan 10 kratten</label>
-        </div>
-        <div class="form-check mb-2">
-          <input class="form-check-input" type="radio" name="crate_option" id="crate10plus" value="10_or_more">
-          <label class="form-check-label" for="crate10plus">10 kratten of meer</label>
-        </div>
-        <label for="crate_count">Geef een schatting van de kratten voor een schatting van de kosten *</label>
-        <input type="number" id="crate_count" name="crate_count" class="form-control mb-3" min="1" value="1" required />
-      </fieldset>
+
 
 
       <!-- Bezorgadres -->

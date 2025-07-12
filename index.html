@@ -224,12 +224,20 @@ document.getElementById('lang-toggle').addEventListener('click', () => {
 }
 
 .brand-text {
+  /* Standaard (desktop/tablet) */
   padding-top: 15px;
-  margin-left: 0.5rem;    /* Ruimte tussen logo en tekst */
-  font-size: 1rem;        /* Tekstgrootte – pas aan naar wens */
-  color: #2D7A2D;         /* Merk- of accentkleur */
-  font-weight: 900;       /* Bold */
-  white-space: nowrap;    /* Voorkomt afbreken van de tekst */
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  color: #2D7A2D;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* Voor “kleine devices” (bijvoorbeeld smartphones tot 600 px breed) */
+@media screen and (max-width: 600px) {
+  .brand-text {
+    font-size: 1rem;
+  }
 }
 
 
@@ -331,7 +339,7 @@ document.getElementById('lang-toggle').addEventListener('click', () => {
       <div class="postcode-feedback" id="modalPostcodeFeedback"></div>
       <button class="btn btn-primary" id="validatePostcodeBtn">Verifiëren</button>
       <div class="note">
-        Zorg bij de volgende winkels: <strong>REWE</strong> dat je <strong>bestellijst@boodschappenkoerier.nl</strong> gebruikt in de bestelgegevens zodat wij je bestelling kunnen ontvangen.
+        Zorg bij deze winkel dat je de bevestigingsmail naar:<strong>bestellijst@boodschappenkoerier.nl</strong> stuurt, en het formulier in vult! Zodat wij het op de juiste manier kunnen verwerken
       </div>
     </div>
   </div>
@@ -591,52 +599,61 @@ const allowedRanges = [
     
     <div class="row align-items-center justify-content-center">
       <!-- DM Partner Card -->
-      <div class="col-lg-5 col-md-6 col-12 mb-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="partner-card available">
-          <div class="partner-header">
-            <div class="partner-logo">
-              <img src="dm.png" alt="DM Logo" class="parnters-logo-img">
-            </div>
-            <div class="partner-status">
-              <span class="status-badge active">
-                <i class="fas fa-check-circle"></i>
-                Beschikbaar
-              </span>
-            </div>
-          </div>
-          
-          <div class="partner-content">
-            <h3 class="partner-name">DM Drogisterij</h3>
-            <p class="partner-description">
-              De grootste drogisterijketen van Duitsland. Bestel cosmetica, verzorgingsproducten, babyartikelen en meer met grote kortingen.
-            </p>
-            
-            <div class="partner-features">
-              <div class="feature">
-                <i class="fas fa-star"></i>
-                <span>Premium merken</span>
-              </div>
-              <div class="feature">
-                <i class="fas fa-baby"></i>
-                <span>Babyproducten</span>
-              </div>
-              <div class="feature">
-                <i class="fas fa-leaf"></i>
-                <span>Bio producten</span>
-              </div>
-            </div>
-            
-            <div class="partner-action">
-              <a href="https://www.dm.de/" target="_blank" class="btn btn-partner-primary">
-                <i class="fas fa-shopping-cart"></i>
-                Bestel nu bij DM
-              </a>
-            </div>
-          </div>
-          
-          <div class="partner-glow"></div>
+<div class="col-lg-5 col-md-6 col-12 mb-4" data-aos="fade-up" data-aos-delay="200">
+  <div class="partner-card available">
+    <div class="partner-header">
+      <div class="partner-logo">
+        <img src="dm.png" alt="DM Logo" class="parnters-logo-img">
+      </div>
+      <div class="partner-status">
+        <span class="status-badge active">
+          <i class="fas fa-check-circle"></i>
+          Beschikbaar
+        </span>
+      </div>
+    </div>
+
+    <div class="partner-content">
+      <h3 class="partner-name">DM Drogisterij</h3>
+      <p class="partner-description">
+        De grootste drogisterijketen van Duitsland. Bestel cosmetica, verzorgingsproducten, babyartikelen en meer met grote kortingen.
+      </p>
+      
+      <div class="partner-features">
+        <div class="feature">
+          <i class="fas fa-star"></i>
+          <span>Premium merken</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-baby"></i>
+          <span>Babyproducten</span>
+        </div>
+        <div class="feature">
+          <i class="fas fa-leaf"></i>
+          <span>Bio producten</span>
         </div>
       </div>
+      
+      <div class="partner-action">
+        <a href="https://www.dm.de/" target="_blank" class="btn btn-partner-primary">
+          <i class="fas fa-shopping-cart"></i>
+          Bestel nu bij DM
+        </a>
+      </div>
+      
+      <div class="partner-note" style="margin-top:1rem; font-size:0.9rem; color:#555;">
+        Zorg bij deze winkel dat je de bevestigingsmail naar:
+        <strong>bestellijst@boodschappenkoerier.nl</strong> stuurt, en het formulier in vult! Zodat wij het op de juiste manier kunnen verwerken
+      </div>
+      <div class="partner-address">
+        <b>DM Goch:</b> Ostwall 33, 47638 Straelen, Duitsland<br>
+        <b>DM Nettetal:</b> Johannes-Cleven-Straße 4, 41334 Nettetal, Duitsland
+      </div>
+    </div>
+    <div class="partner-glow"></div>
+  </div>
+</div>
+
       
       <!-- REWE Partner Card -->
 <div class="col-lg-5 col-md-6 col-12 mb-4" data-aos="fade-up" data-aos-delay="300">
@@ -652,13 +669,11 @@ const allowedRanges = [
         </span>
       </div>
     </div>
-
     <div class="partner-content">
       <h3 class="partner-name">REWE Supermarkt</h3>
       <p class="partner-description">
         Duitslands populaire supermarktketen. Verse producten, merkartikelen en dagelijkse boodschappen tegen scherpe prijzen.
       </p>
-
       <div class="partner-features">
         <div class="feature">
           <i class="fas fa-apple-alt"></i>
@@ -673,22 +688,25 @@ const allowedRanges = [
           <span>Merkartikelen</span>
         </div>
       </div>
-
       <div class="partner-action">
         <a href="https://shop.rewe.de/" target="_blank" class="btn btn-partner-primary">
           <i class="fas fa-shopping-cart"></i>
           Bestel nu bij REWE
         </a>
       </div>
-
-      <!-- Hier komt de note onder de knop -->
       <div class="partner-note" style="margin-top:1rem; font-size:0.9rem; color:#555;">
-        Zorg bij REWE dat je <strong>bestellijst@boodschappenkoerier.nl</strong> gebruikt in de bestelgegevens zodat wij je bestelling kunnen ontvangen.
+        Zorg bij deze winkel dat je de bevestigingsmail naar:
+        <strong>bestellijst@boodschappenkoerier.nl</strong> stuurt, en het formulier in vult! Zodat wij het op de juiste manier kunnen verwerken
+      </div>
+      <div class="partner-address">
+        <b>REWE Straelen:</b> Ostwall 21, 47638 Straelen, Duitsland<br>
+        <b>REWE Hinsbeck:</b> Rosental 30, 41334 Nettetal (Hinsbeck), Duitsland
       </div>
     </div>
-
     <div class="partner-glow"></div>
   </div>
+</div>
+
 </div>
 </div>
 </section>
@@ -701,6 +719,30 @@ const allowedRanges = [
   position: relative;
   overflow: hidden;
 }
+.partner-address {
+  margin-top: 0.7rem;
+  padding: 0.7rem 1rem 0.4rem 1rem;
+  background: #f4f7ed;
+  border-radius: 9px;
+  font-size: 1em;
+  color: #236623;
+  box-shadow: 0 1px 6px rgba(37, 211, 102, 0.04);
+  font-weight: 500;
+  line-height: 1.6;
+  border-left: 4px solid #25D366;
+}
+.partner-address b {
+  color: #2d7a2d;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .partner-address {
+    text-align: center;
+    padding: 0.5rem 0.6rem 0.3rem 0.6rem;
+    font-size: 0.95em;
+  }
+}
+
 
 .partner-note {
   margin-top: 1rem;
