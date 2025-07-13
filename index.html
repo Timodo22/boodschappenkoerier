@@ -388,36 +388,50 @@ const allowedRanges = [
    [5420, 5425], // Gemert-Bakel
    [5270, 5272], // Sint-Michielsgestel
 ];
-      const modal = document.getElementById('postcodeModal');
-      const closeBtn = document.getElementById('closePostcodeModal');
-      const input = document.getElementById('modalPostcodeInput');
-      const feedback = document.getElementById('modalPostcodeFeedback');
-      const validateBtn = document.getElementById('validatePostcodeBtn');
+     const modal = document.getElementById('postcodeModal');
+  const closeBtn = document.getElementById('closePostcodeModal');
+  const input = document.getElementById('modalPostcodeInput');
+  const feedback = document.getElementById('modalPostcodeFeedback');
+  const validateBtn = document.getElementById('validatePostcodeBtn');
 
-      function hideModal() {
-        modal.style.display = 'none';
-      }
-      closeBtn.addEventListener('click', hideModal);
+  // === HIER: alleen tonen als nog niet geverifieerd
+  if (localStorage.getItem('postcodeVerified') === '1') {
+    modal.style.display = 'none';
+  } else {
+    modal.style.display = 'flex'; // of 'block' als flex niet werkt bij jou
+  }
 
-      function isValidPostcode(pc) {
-        const raw = pc.toUpperCase().replace(/\s+/g,'');
-        const m = raw.match(/^(\d{4})[A-Z]{2}$/);
-        if (!m) return false;
-        const code = parseInt(m[1],10);
-        return allowedRanges.some(([min,max]) => code >= min && code <= max);
-      }
+  function hideModal() {
+    modal.style.display = 'none';
+  }
+  closeBtn.addEventListener('click', hideModal);
 
-      validateBtn.addEventListener('click', function() {
-        const val = input.value.trim();
-        if (!isValidPostcode(val)) {
-          feedback.textContent = 'Deze postcode valt buiten ons bezorggebied.';
-        } else {
-          feedback.textContent = '';
-          hideModal();
-        }
-      });
-    });
-  </script>
+  function isValidPostcode(pc) {
+    const raw = pc.toUpperCase().replace(/\s+/g,'');
+    const m = raw.match(/^(\d{4})[A-Z]{2}$/);
+    if (!m) return false;
+    const code = parseInt(m[1],10);
+    return allowedRanges.some(([min,max]) => code >= min && code <= max);
+  }
+
+validateBtn.addEventListener('click', function() {
+  const val = input.value.trim();
+  if (!isValidPostcode(val)) {
+    feedback.textContent = 'Deze postcode valt buiten ons bezorggebied.';
+    feedback.style.color = '#c00';
+  } else {
+    // SUCCES: Geef bevestiging en sluit na 1 seconde
+    feedback.textContent = 'Top! Hier bezorgen wij!';
+    feedback.style.color = '#236623';
+    localStorage.setItem('postcodeVerified', '1');
+    setTimeout(() => {
+      hideModal();
+    }, 1000); // 1 seconde wachten
+  }
+});
+
+});
+</script>
 
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -1347,23 +1361,7 @@ const allowedRanges = [
       <div class="col-lg-8 col-12">
         <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
           
-          <div class="faq-item">
-            <div class="faq-question">
-              <h4>Hoe werkt bestellen via de DM website?</h4>
-              <div class="faq-toggle">
-                <i class="fas fa-plus"></i>
-              </div>
-            </div>
-            <div class="faq-answer">
-              <p>1. Ga naar de <a href="https://www.dm.de/" target="_blank">DM-website</a> en voeg de gewenste producten toe aan je winkelwagen.<br>
-              2. Kies bij <strong>Afhaalmethode</strong> voor "Eigen afhaling in filiaal" en selecteer het filiaal:<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<em>Voßstraße 49-51, 47574 Goch</em>.<br>
-              3. Vul het bestel formulier <a href="form.html">hier</a> in<br>
-              4. Bevestig je bestelling en noteer het afhaaltijdstip. Onze koerier komt jouw bestelling ophalen in het filiaal op het door jou gekozen moment.<br>
-              5. Vervolgens bezorgen wij de boodschappen op maandag, woensdag of vrijdag vanaf 12:00 uur bij jou thuis.
-              </p>
-            </div>
-          </div>
+          
 
                     <div class="faq-item">
             <div class="faq-question">
@@ -1375,7 +1373,7 @@ const allowedRanges = [
             <div class="faq-answer">
               <p>1. Ga naar de <a href="https://www.dm.de/" target="_blank">DM-website</a> en voeg de gewenste producten toe aan je winkelwagen.<br>
               2. Kies bij <strong>Afhaalmethode</strong> voor "Eigen afhaling in filiaal" en selecteer het filiaal:<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<em>Voßstraße 49-51, 47574 Goch</em>.<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<em>Johannes-Cleven-Straße 4, 41334 Nettetal, Duitsland</em>.<br>
               3. Plan de afhaling op één van onze afhaalmomenten:<br>
               &nbsp;&nbsp;&nbsp;&nbsp;- Maandag ochtend (tussen 09:00 en 11:00)<br>
               &nbsp;&nbsp;&nbsp;&nbsp;- Vrijdag ochtend (tussen 09:00 en 11:00)<br>
@@ -1393,9 +1391,9 @@ const allowedRanges = [
               </div>
             </div>
             <div class="faq-answer">
-              <p>1. Ga naar de <a href="https://www.dm.de/" target="_blank">DM-website</a> en voeg de gewenste producten toe aan je winkelwagen.<br>
+              <p>1. Ga naar de <a href="https://shop.rewe.de/" target="_blank">DM-website</a> en voeg de gewenste producten toe aan je winkelwagen.<br>
               2. Kies bij <strong>Afhaalmethode</strong> voor "Eigen afhaling in filiaal" en selecteer het filiaal:<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<em>Voßstraße 49-51, 47574 Goch</em>.<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<em>Rosental 30, 41334 Nettetal (Hinsbeck), Duitsland</em>.<br>
               3. Plan de afhaling op één van onze afhaalmomenten:<br>
               &nbsp;&nbsp;&nbsp;&nbsp;- Maandag ochtend (tussen 09:00 en 11:00)<br>
               &nbsp;&nbsp;&nbsp;&nbsp;- Vrijdag ochtend (tussen 09:00 en 11:00)<br>
